@@ -21,13 +21,6 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    @GetMapping("/List")
-    public String listUtilisateur(Model model){
-        List<Utilisateur> utilisateurs = utilisateurService.getUtilisateurs();
-        model.addAttribute("utilisateur", utilisateurs);
-        return "list-utilisateur";
-    }
-
     @GetMapping("/showForm")
     public String showFormForAdd(Model model){
         LOG.debug("inside show utilisateur-form handler method");
@@ -36,22 +29,17 @@ public class UtilisateurController {
         return "utilisateur-form";
     }
 
+    @PostMapping("/connexion")
+    public String connexion(@ModelAttribute("utilisateur") Utilisateur utilisateur) throws RessourceNotFoundException {
+        utilisateurService.getUtilisateur(utilisateur.getPseudo(), utilisateur.getMdp());
+        return "/utilisateur";
+    }
+
     @PostMapping("/saveUtilisateur")
     public String saveUtilisateur(@ModelAttribute("utilisateur") Utilisateur theUtilisateur) {
         utilisateurService.saveUtilisateur(theUtilisateur);
-        return "redirect:/utilisateur/list";
+        return "/utilisateur";
     }
 
-    @GetMapping("/updateForm")
-    public String showFormForUpdate(@RequestParam("utilisateurId") int id, Model theModel) throws RessourceNotFoundException {
-        Utilisateur utilisateur = utilisateurService.getUtilisateur(id);
-        theModel.addAttribute("utilisateur", utilisateur);
-        return "utilisateur-form";
-    }
 
-    @GetMapping("/delete")
-    public String deleteUtilisateur(@RequestParam("utilisateurId") int id) throws RessourceNotFoundException {
-        utilisateurService.deleteUtilisateur(id);
-        return "redirect:/utilisateur/list";
-    }
 }

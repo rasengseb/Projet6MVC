@@ -1,0 +1,9 @@
+com\mvc\controller\UtilisateurController.class
+com\mvc\entity\Utilisateur.class
+com\mvc\service\UtilisateurServiceImpl.class
+com\mvc\config\WebMvcConfig.class
+com\mvc\exception\RessourceNotFoundException.class
+com\mvc\repository\UtilisateurRepository.class
+com\mvc\config\AppInitializer.class
+com\mvc\config\PersistenceJPAConfig.class
+com\mvc\service\UtilisateurService.class

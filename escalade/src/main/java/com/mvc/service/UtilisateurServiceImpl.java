@@ -20,26 +20,20 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     @Transactional
-    public List<Utilisateur> getUtilisateurs() {
-        return utilisateurRepository.findAll();
-    }
-
-    @Override
-    @Transactional
     public void saveUtilisateur(Utilisateur utilisateur) {
         utilisateurRepository.save(utilisateur);
     }
 
     @Override
+    public Utilisateur getUtilisateur(String pseudo, String mdp) throws RessourceNotFoundException {
+        return null;
+    }
+
+    //@Override
     @Transactional
     public Utilisateur getUtilisateur(int id) throws RessourceNotFoundException {
         return utilisateurRepository.findById(id).orElseThrow(
                 () -> new RessourceNotFoundException(id));
     }
 
-    @Override
-    @Transactional
-    public void deleteUtilisateur(int id) throws RessourceNotFoundException {
-        utilisateurRepository.deleteById(id);
-    }
 }
