@@ -4,8 +4,6 @@ import com.mvc.entity.Utilisateur;
 import com.mvc.exception.RessourceNotFoundException;
 
 
-import java.util.List;
-
 public interface UtilisateurService {
 
 
