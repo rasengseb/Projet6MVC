@@ -1,5 +1,6 @@
 package com.mvc.controller;
 
+import com.mvc.entity.Connexion;
 import com.mvc.entity.Utilisateur;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.UtilisateurService;
@@ -20,17 +21,19 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    @GetMapping("/showForm")
+    @GetMapping
     public String showFormForAdd(Model model){
         LOG.debug("inside show utilisateur-form handler method");
         Utilisateur utilisateur = new Utilisateur();
+        Connexion connexion = new Connexion();
         model.addAttribute("utilisateur", utilisateur);
+        model.addAttribute("connexion", connexion);
         return "utilisateur-form";
     }
 
     @PostMapping("/connexion")
-    public String connexion(@ModelAttribute("utilisateur") Utilisateur utilisateur) throws RessourceNotFoundException {
-        utilisateurService.getUtilisateur(utilisateur.getPseudo(), utilisateur.getMdp());
+    public String connexion(@ModelAttribute("connexion") Connexion connexion) throws RessourceNotFoundException {
+        utilisateurService.getUtilisateur(connexion);
         return "/utilisateur";
     }
 

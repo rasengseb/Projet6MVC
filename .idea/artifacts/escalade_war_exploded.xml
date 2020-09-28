@@ -14,7 +14,6 @@
           <element id="module-output" name="escalade" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.1.0.RELEASE" />
