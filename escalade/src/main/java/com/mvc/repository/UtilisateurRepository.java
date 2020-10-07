@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
 
-
+    public Utilisateur getByPseudoAndMdp(String pseudo, String mdp);
 }

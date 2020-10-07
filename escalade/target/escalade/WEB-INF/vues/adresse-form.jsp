@@ -50,13 +50,6 @@
                                 <form:input path="ville" cssClass="form-control"/>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Enregistrer</form:button>
-                            </div>
-                        </div>
                     </form:form>
 
                 </div>

@@ -18,36 +18,16 @@
         <div class="col-offset-3 col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Adresse</div>
+                    <div class="panel-title">Site</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
+                    <form:form action="saveSite" cssClass="form-horizontal" method="post" modelAttribute="site">
                         <form:hidden path="id"/>
 
                         <div class="form-group">
-                            <label for="numero" class="col-md-3 control-label">Numéro : </label>
+                            <label for="nom" class="col-md-3 control-label">Nom : </label>
                             <div class="col-md-9">
-                                <form:input path="numero" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="rue" class="col-md-3 control-label">Rue : </label>
-                            <div class="col-md-9">
-                                <form:input path="rue" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="codePostal" class="col-md-3 control-label">Code Postal : </label>
-                            <div class="col-md-9">
-                                <form:input path="codePostal" cssClass="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ville" class="col-md-3 control-label">Ville : </label>
-                            <div class="col-md-9">
-                                <form:input path="ville" cssClass="form-control"/>
+                                <form:input path="nom" cssClass="form-control"/>
                             </div>
                         </div>
 
@@ -57,6 +37,14 @@
                                 <form:button cssClass="btn btn-primary">Enregistrer</form:button>
                             </div>
                         </div>
+                    </form:form>
+
+                    <form:form action="getAllSite" cssClass="form-horizontal" method="post" modelAttribute="site">
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <form:button cssClass="btn btn-primary">Voir Sites</form:button>
+                        </div>
+                    </div>
                     </form:form>
 
                 </div>

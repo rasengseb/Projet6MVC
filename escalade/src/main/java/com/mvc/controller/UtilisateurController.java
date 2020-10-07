@@ -34,13 +34,13 @@ public class UtilisateurController {
     @PostMapping("/connexion")
     public String connexion(@ModelAttribute("connexion") Connexion connexion) throws RessourceNotFoundException {
         utilisateurService.getUtilisateur(connexion);
-        return "/utilisateur";
+        return "redirect:/utilisateur-form";
     }
 
     @PostMapping("/saveUtilisateur")
-    public String saveUtilisateur(@ModelAttribute("utilisateur") Utilisateur theUtilisateur) {
-        utilisateurService.saveUtilisateur(theUtilisateur);
-        return "/utilisateur";
+    public String saveUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
+        utilisateurService.saveUtilisateur(utilisateur);
+        return "redirect:/utilisateur-form";
     }
 
 

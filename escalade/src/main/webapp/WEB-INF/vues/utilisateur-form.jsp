@@ -21,7 +21,7 @@
                     <div class="panel-title">S'inscrire</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="saveUtilsateur" cssClass="form-horizontal"
+                    <form:form action="saveUtilisateur" cssClass="form-horizontal"
                                method="post" modelAttribute="utilisateur">
 
                         <!-- need to associate this data with customer id -->
