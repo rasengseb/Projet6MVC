@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/site")
+@Transactional(propagation = Propagation.REQUIRES_NEW)
 public class SiteController {
 
     public static final Logger LOG = LoggerFactory.getLogger(SiteController.class);
@@ -33,20 +36,21 @@ public class SiteController {
     @PostMapping("/saveSite")
     public String saveSite(@ModelAttribute("site")Site site){
         siteService.saveSite(site);
-        return "/site";
+        return "redirect:/site";
     }
 
-    @PostMapping("/getAllSite")
+    @GetMapping("/getAllSite")
     public String getAllSite(Model model){
         List<Site> sites = siteService.getAllSite();
         model.addAttribute("sites", sites);
-        return "/site-list";
+        return "site-list";
     }
 
-    @PostMapping("/showSite")
-    public String showSite(Model model, @RequestParam("siteId") int id) throws RessourceNotFoundException {
+    @GetMapping("/showSite/{siteId}")
+    public String showSite(Model model, @PathVariable("siteId") int id) throws RessourceNotFoundException {
         Site site = siteService.getSite(id);
         model.addAttribute("site", site);
-        return "/affichage-site";
+        model.addAttribute("secteur", site.getSecteurs());
+        return "affichage-site";
     }
 }

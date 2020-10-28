@@ -87,16 +87,4 @@ public class Utilisateur {
         isAdmin = admin;
     }
 
-    @Override
-    public String toString() {
-        return "Utilisateur{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", pseudo='" + pseudo + '\'' +
-                ", mdp='" + mdp + '\'' +
-                ", mail='" + mail + '\'' +
-                ", isAdmin=" + isAdmin +
-                '}';
-    }
 }

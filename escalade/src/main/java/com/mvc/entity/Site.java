@@ -16,15 +16,13 @@ public class Site {
     private String nom;
 
     @OneToOne
-    @Column(name = "id_adresse")
+    @JoinColumn(name = "adresse_id")
     private Adresse adresse;
 
-    @OneToMany
-    @Column(name = "id_secteur")
+    @OneToMany(mappedBy = "site")
     private List<Secteur> secteurs;
 
-    @OneToMany
-    @Column(name = "id_commentaire")
+    @OneToMany(mappedBy = "site")
     private List<Commentaire> commentaires;
 
     public Site() {
@@ -71,14 +69,4 @@ public class Site {
         this.commentaires = commentaires;
     }
 
-    @Override
-    public String toString() {
-        return "Site{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", adresse=" + adresse +
-                ", secteurs=" + secteurs +
-                ", commentaires=" + commentaires +
-                '}';
-    }
 }

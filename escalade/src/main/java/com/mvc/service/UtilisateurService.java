@@ -12,5 +12,4 @@ public interface UtilisateurService {
 
     Utilisateur getUtilisateur(Connexion connexion) throws RessourceNotFoundException;
 
-
 }

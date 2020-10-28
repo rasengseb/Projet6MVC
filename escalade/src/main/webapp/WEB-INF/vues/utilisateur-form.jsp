@@ -21,7 +21,7 @@
                     <div class="panel-title">S'inscrire</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="saveUtilisateur" cssClass="form-horizontal"
+                    <form:form action="utilisateur/saveUtilisateur" cssClass="form-horizontal"
                                method="post" modelAttribute="utilisateur">
 
                         <!-- need to associate this data with customer id -->
@@ -80,7 +80,7 @@
                     <div class="panel-title">Connexion</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="connexion" cssClass="form-horizontal" method="post" modelAttribute="connexion">
+                    <form:form action="utilisateur/connexion" cssClass="form-horizontal" method="post" modelAttribute="connexion">
 
                         <div class="form-group">
                             <label for="pseudo" class="col-md-3 control-label">Pseudo</label>

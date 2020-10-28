@@ -21,7 +21,7 @@
                     <div class="panel-title">Adresse</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
+                    <form:form action="adresse/saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
                         <form:hidden path="id"/>
 
                         <div class="form-group">

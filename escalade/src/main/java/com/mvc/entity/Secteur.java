@@ -1,6 +1,7 @@
 package com.mvc.entity;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Entity
@@ -12,12 +13,14 @@ public class Secteur {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    @Column(name = "id_site")
+    @Column(name = "numero")
+    private Integer numero;
+
+    @ManyToOne
+    @JoinColumn(name = "id_site")
     private Site site;
 
-    @OneToMany
-    @Column(name = "id_voie")
+    @OneToMany(mappedBy = "secteur", fetch = FetchType.EAGER)
     private List<Voie> voies;
 
     public Secteur() {
@@ -30,6 +33,14 @@ public class Secteur {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
 
     public Site getSite() {
@@ -48,12 +59,5 @@ public class Secteur {
         this.voies = voies;
     }
 
-    @Override
-    public String toString() {
-        return "Secteur{" +
-                "id=" + id +
-                ", site=" + site +
-                ", voies=" + voies +
-                '}';
-    }
+
 }

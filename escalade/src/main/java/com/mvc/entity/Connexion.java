@@ -44,12 +44,4 @@ public class Connexion {
         this.cmdp = mdp;
     }
 
-    @Override
-    public String toString() {
-        return "Connexion{" +
-                "id=" + id +
-                ", pseudo='" + cpseudo + '\'' +
-                ", mdp='" + cmdp + '\'' +
-                '}';
-    }
 }

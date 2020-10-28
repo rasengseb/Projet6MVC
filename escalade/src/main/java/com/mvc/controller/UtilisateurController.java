@@ -8,12 +8,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
 @Controller
 @RequestMapping("/utilisateur")
+@Transactional(propagation = Propagation.REQUIRES_NEW)
 public class UtilisateurController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UtilisateurController.class);
@@ -34,13 +37,13 @@ public class UtilisateurController {
     @PostMapping("/connexion")
     public String connexion(@ModelAttribute("connexion") Connexion connexion) throws RessourceNotFoundException {
         utilisateurService.getUtilisateur(connexion);
-        return "redirect:/utilisateur-form";
+        return "redirect:/utilisateur";
     }
 
     @PostMapping("/saveUtilisateur")
     public String saveUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur) {
         utilisateurService.saveUtilisateur(utilisateur);
-        return "redirect:/utilisateur-form";
+        return "redirect:/utilisateur";
     }
 
 

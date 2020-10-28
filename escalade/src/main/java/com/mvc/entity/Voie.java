@@ -12,7 +12,7 @@ public class Voie {
     private Integer id;
 
     @ManyToOne (cascade = CascadeType.ALL)
-    @Column(name = "id_secteur")
+    @JoinColumn(name = "id_secteur")
     private Secteur secteur;
 
     @Column(name = "nom")
@@ -79,15 +79,4 @@ public class Voie {
         this.cote = cote;
     }
 
-    @Override
-    public String toString() {
-        return "Voie{" +
-                "id=" + id +
-                ", secteur=" + secteur +
-                ", nom='" + nom + '\'' +
-                ", longueur=" + longueur +
-                ", description='" + description + '\'' +
-                ", cote='" + cote + '\'' +
-                '}';
-    }
 }

@@ -23,6 +23,19 @@ public class Adresse {
     @Column(name = "ville")
     private String ville;
 
+    @OneToOne
+    @JoinColumn(name = "site_id")
+    private Site site;
+
+
+
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
+    }
 
     public Adresse() {
     }
@@ -67,14 +80,5 @@ public class Adresse {
         this.ville = ville;
     }
 
-    @Override
-    public String toString() {
-        return "Adresse{" +
-                "id=" + id +
-                ", numero=" + numero +
-                ", rue='" + rue + '\'' +
-                ", codePostal=" + codePostal +
-                ", ville='" + ville + '\'' +
-                '}';
-    }
+
 }

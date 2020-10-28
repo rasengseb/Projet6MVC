@@ -12,7 +12,7 @@ public class Commentaire {
     private Integer id;
 
     @ManyToOne (cascade = CascadeType.ALL)
-    @Column (name = "id_site")
+    @JoinColumn(name = "id_site")
     private Site site;
 
     @Column(name = "commentaire")
@@ -46,12 +46,5 @@ public class Commentaire {
         this.commentaire = commentaire;
     }
 
-    @Override
-    public String toString() {
-        return "Commentaire{" +
-                "id=" + id +
-                ", site=" + site +
-                ", commentaire='" + commentaire + '\'' +
-                '}';
-    }
+
 }
