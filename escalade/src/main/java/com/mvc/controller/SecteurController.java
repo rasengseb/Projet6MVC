@@ -1,6 +1,8 @@
 package com.mvc.controller;
 
 import com.mvc.entity.Secteur;
+import com.mvc.entity.Site;
+import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.SecteurService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +33,9 @@ public class SecteurController {
 
     @PostMapping("/saveSecteur")
     public String saveSecteur(@ModelAttribute("secteur") Secteur secteur, @RequestParam("siteId") Integer id){
-        secteur.getSite().setId(id);
+        Site site = new Site();
+        site.setId(id);
+        secteur.setSite(site);
         secteurService.saveSecteur(secteur);
         return "secteur-form";
     }
@@ -44,11 +48,13 @@ public class SecteurController {
         return "secteur-form";
     }
 
-
-//    @GetMapping("/getVoies")
-//    public String getVoies(Model model, @PathVariable("secteurId") int id) throws RessourceNotFoundException {
-//        List voies = secteurService.getVoies(id);
-//        model.addAttribute("voies", voies);
-//        return "/secteur";
-//    }
+    @Transactional
+    @GetMapping("/showSecteur/{secteurId}")
+    public String showSecteur(Model model, @PathVariable("secteurId") int id) throws RessourceNotFoundException {
+        Secteur secteur = secteurService.getSecteur(id);
+        model.addAttribute("secteur", secteur);
+        model.addAttribute("voie", secteur.getVoies());
+        return "affichage-secteur";
+    }
+    
 }

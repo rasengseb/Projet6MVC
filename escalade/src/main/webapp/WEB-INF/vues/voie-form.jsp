@@ -18,11 +18,14 @@
         <div class="col-offset-3 col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Adresse</div>
+                    <div class="panel-title">Voie</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="voie/saveVoie" cssClass="form-horizontal" method="post" modelAttribute="voie">
+                    <form:form action="/voie/saveVoie" cssClass="form-horizontal" method="post" modelAttribute="voie">
                         <form:hidden path="id"/>
+
+                        <input type="text" id=secteurId" name="secteurId" value="${secteurId}" hidden/>
+
 
                         <div class="form-group">
                             <label for="nom" class="col-md-3 control-label">Nom : </label>

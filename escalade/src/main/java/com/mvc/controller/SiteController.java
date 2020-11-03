@@ -46,11 +46,13 @@ public class SiteController {
         return "site-list";
     }
 
+    @Transactional
     @GetMapping("/showSite/{siteId}")
     public String showSite(Model model, @PathVariable("siteId") int id) throws RessourceNotFoundException {
         Site site = siteService.getSite(id);
         model.addAttribute("site", site);
         model.addAttribute("secteur", site.getSecteurs());
+        model.addAttribute("commentaire", site.getCommentaires());
         return "affichage-site";
     }
 }

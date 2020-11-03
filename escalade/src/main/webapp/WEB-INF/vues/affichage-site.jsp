@@ -23,7 +23,7 @@
                 </div>
                 <div class="panel-body">
 
-                    <form:form action="site/${site.id}/addSecteur" cssClass="form-horizontal" method="get"
+                    <form:form action="/secteur/site/${site.id}/addSecteur" cssClass="form-horizontal" method="get"
                                modelAttribute="site">
                         <div class="form-group">
                             <label for="nom" class="col-md-3 control-label">Nom : </label>
@@ -40,17 +40,23 @@
                             </div>
                         </div>
                     </form:form>
+                </div>
 
-                    <%--                    Affichage liste Secteur du site--%>
-                    <c:if test="${ secteurs != null }" var="secteurs">
+                <%--                    Affichage liste Secteur du site--%>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Secteurs</div>
+                    </div>
+                    <div class="panel-body">
                         <!-- loop over and print our customers -->
-                        <c:forEach var="secteurs" items="${secteurs}">
-                            <c:param name="siteId" value="${secteur.id}"/>
+                        <c:forEach var="secteur" items="${secteur}">
                             <tr>
-                                <td>${secteur.numero}</td>
+                                <td>Secteur numéro ${secteur.numero}</td>
 
                                 <td>
-                                    <form:form action="showSite/${secteur.id}" cssClass="form-horizontal" method="get"
+                                    <form:form action="/secteur/showSecteur/${secteur.id}" cssClass="form-horizontal"
+                                               method="get"
                                                modelAttribute="secteur">
                                         <div class="form-group">
                                             <div class="col-md-offset-3 col-md-9">
@@ -63,9 +69,33 @@
                             </tr>
 
                         </c:forEach>
-                    </c:if>
-
+                    </div>
                 </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Commentaire</div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- loop over and print our customers -->
+                        <c:forEach var="commentaire" items="${commentaire}">
+                            <tr>
+                                <td>${commentaire.utilisateur.nom}</td>
+
+                                <td>
+                                        ${commentaire.commentaire}
+                                </td>
+
+                            </tr>
+
+                        </c:forEach>
+                        <!-- Button -->
+                        <%--                            <div class="col-md-offset-3 col-md-9">--%>
+                        <%--                                <form:button cssClass="btn btn-primary">Ajouter Secteur</form:button>--%>
+                        <%--                            </div>--%>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

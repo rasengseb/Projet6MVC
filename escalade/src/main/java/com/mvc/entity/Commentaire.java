@@ -15,6 +15,10 @@ public class Commentaire {
     @JoinColumn(name = "id_site")
     private Site site;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_utilisateur")
+    private Utilisateur utilisateur;
+
     @Column(name = "commentaire")
     private String commentaire;
 
@@ -36,6 +40,14 @@ public class Commentaire {
 
     public void setSite(Site site) {
         this.site = site;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public String getCommentaire() {

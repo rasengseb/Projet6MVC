@@ -20,7 +20,7 @@ public class Secteur {
     @JoinColumn(name = "id_site")
     private Site site;
 
-    @OneToMany(mappedBy = "secteur", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "secteur")
     private List<Voie> voies;
 
     public Secteur() {

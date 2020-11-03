@@ -1,5 +1,6 @@
 package com.mvc.controller;
 
+import com.mvc.entity.Secteur;
 import com.mvc.entity.Voie;
 import com.mvc.service.VoieService;
 import org.slf4j.Logger;
@@ -9,10 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Controller
 @RequestMapping("/voie")
@@ -33,8 +33,19 @@ public class VoieController {
     }
 
     @PostMapping("/saveVoie")
-    public String saveVoie(@ModelAttribute("voie") Voie voie){
+    public String saveVoie(@ModelAttribute("voie") Voie voie, @RequestParam("secteurId")Integer id){
+        Secteur secteur = new Secteur();
+        secteur.setId(id);
+        voie.setSecteur(secteur);
         voieService.saveVoie(voie);
         return "redirect:/voie";
+    }
+
+    @GetMapping("secteur/{secteurId}/addVoie")
+    public String addVoie(@PathVariable("secteurId") int id, Model model){
+        Voie voie = new Voie();
+        model.addAttribute("voie", voie);
+        model.addAttribute("secteurId", id);
+        return "voie-form";
     }
 }

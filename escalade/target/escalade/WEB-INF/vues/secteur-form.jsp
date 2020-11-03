@@ -21,7 +21,7 @@
                     <div class="panel-title">Site</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">
+                    <form:form action="/secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">
                         <form:hidden path="id"/>
                         <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
 

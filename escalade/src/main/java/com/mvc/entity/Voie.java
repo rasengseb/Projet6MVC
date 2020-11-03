@@ -11,7 +11,7 @@ public class Voie {
     @Column (name = "id")
     private Integer id;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_secteur")
     private Secteur secteur;
 
