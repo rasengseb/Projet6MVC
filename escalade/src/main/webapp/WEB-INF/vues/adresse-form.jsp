@@ -21,8 +21,10 @@
                     <div class="panel-title">Adresse</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="adresse/saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
+                    <form:form action="/adresse/saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
                         <form:hidden path="id"/>
+
+                        <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
 
                         <div class="form-group">
                             <label for="numero" class="col-md-3 control-label">Numéro : </label>

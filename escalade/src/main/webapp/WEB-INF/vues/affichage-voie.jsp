@@ -28,27 +28,27 @@
                         <div class="form-group">
                             <label for="nom" class="col-md-3 control-label">Nom : </label>
                             <div class="col-md-9">
-                                <form:input path="nom" cssClass="form-control" value="${voie.nom}"/>
+                                <form:input path="nom" cssClass="form-control" value="${voie.nom}" readonly="true"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="longueur" class="col-md-3 control-label">Longueur : </label>
                             <div class="col-md-9">
-                                <form:input path="longueur" cssClass="form-control" value="${voie.longueur}"/>
+                                <form:input path="longueur" cssClass="form-control" value="${voie.longueur}" readonly="true"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="cote" class="col-md-3 control-label">Cote : </label>
                             <div class="col-md-9">
-                                <form:input path="cote" cssClass="form-control" value="${voie.cote}"/>
+                                <form:input path="cote" cssClass="form-control" value="${voie.cote}" readonly="true"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="description" class="col-md-3 control-label">Description : </label>
                             <div class="col-md-9">
-                                <form:input path="description" cssClass="form-control" value="${voie.description}"/>
+                                <form:input path="description" cssClass="form-control" value="${voie.description}" readonly="true"/>
                             </div>
                         </div>
 

@@ -28,15 +28,41 @@
                         <div class="form-group">
                             <label for="nom" class="col-md-3 control-label">Nom : </label>
                             <div class="col-md-9">
-                                <form:input path="nom" cssClass="form-control" value="${site.nom}"/>
+                                    <%--                                <form:input path="nom" cssClass="form-control" value="${site.nom}"/>--%>
+                                <p id="nom">${site.nom}</p>
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="adresse" class="col-md-3 control-label">Adresse :</label>
+                            <div class="col-md-9">
+                                <p id="adresse">
+                                <p>${site.adresse.numero}</p>
+                                <p>${site.adresse.rue}</p>
+                                <p>${site.adresse.codePostal}</p>
+                                <p>${site.adresse.ville}</p>
+                                </p>
+                                    <%--                                <form:input path="adresse.numero" cssClass="form-control" value="${site.adresse.numero} ${site.adresse.rue} ${site.adresse.codePostal} ${site.adresse.ville}"/>--%>
+                                    <%--                                <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}"/>--%>
+                                    <%--                                <form:input path="adresse.codePostal" cssClass="form-control" value="${site.adresse.codePostal}"/>--%>
+                                    <%--                                <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}"/>--%>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <!-- Button -->
                             <div class="col-md-offset-3 col-md-9">
                                 <form:button cssClass="btn btn-primary">Ajouter Secteur</form:button>
+                            </div>
+                        </div>
+                    </form:form>
+
+                    <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
+                               modelAttribute="site">
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-md-offset-3 col-md-9">
+                                <form:button cssClass="btn btn-primary">Ajouter Adresse</form:button>
                             </div>
                         </div>
                     </form:form>

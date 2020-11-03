@@ -28,10 +28,19 @@
                         <div class="form-group">
                             <label for="nom" class="col-md-3 control-label">Nom : </label>
                             <div class="col-md-9">
-                                <form:input path="nom" cssClass="form-control" value="${site.nom}"/>
+                                <form:input path="nom" cssClass="form-control" value="${site.nom}" readonly="true"/>
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Adresse :</label>
+                            <div class="col-md-9">
+                                <form:input path="adresse.numero" cssClass="form-control" value="${site.adresse.numero}" readonly="true"/>
+                                <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}" readonly="true"/>
+                                <form:input path="adresse.codePostal" cssClass="form-control" value="${site.adresse.codePostal}" readonly="true"/>
+                                <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}" readonly="true"/>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <!-- Button -->
@@ -39,6 +48,16 @@
                                 <form:button cssClass="btn btn-primary">Ajouter Secteur</form:button>
                             </div>
                         </div>
+                    </form:form>
+
+                    <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
+                               modelAttribute="site">
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <form:button cssClass="btn btn-primary">Ajouter Adresse</form:button>
+                        </div>
+                    </div>
                     </form:form>
                 </div>
 
