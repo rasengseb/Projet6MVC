@@ -1,6 +1,7 @@
 package com.mvc.service;
 
 import com.mvc.entity.Voie;
+import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.repository.VoieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,11 @@ public class VoieServiceImpl implements VoieService{
     @Override
     public void saveVoie(Voie voie) {
         voieRepository.save(voie);
+    }
+
+    @Override
+    public Voie getVoie(int id) throws RessourceNotFoundException {
+        return voieRepository.findById(id).orElseThrow(
+                () -> new RessourceNotFoundException(id));
     }
 }

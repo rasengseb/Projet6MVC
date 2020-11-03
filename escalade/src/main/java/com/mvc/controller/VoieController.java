@@ -2,6 +2,7 @@ package com.mvc.controller;
 
 import com.mvc.entity.Secteur;
 import com.mvc.entity.Voie;
+import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.VoieService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,5 +48,13 @@ public class VoieController {
         model.addAttribute("voie", voie);
         model.addAttribute("secteurId", id);
         return "voie-form";
+    }
+
+    @Transactional
+    @GetMapping("/showVoie/{voieId}")
+    public String showVoie(Model model, @PathVariable("voieId") int id) throws RessourceNotFoundException {
+        Voie voie = voieService.getVoie(id);
+        model.addAttribute("voie", voie);
+        return "affichage-voie";
     }
 }

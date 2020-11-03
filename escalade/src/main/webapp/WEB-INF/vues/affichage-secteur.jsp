@@ -55,7 +55,7 @@
                                 <td>Voie numéro ${voie.nom}</td>
 
                                 <td>
-                                    <form:form action="showSite/${voie.id}" cssClass="form-horizontal"
+                                    <form:form action="/voie/showVoie/${voie.id}" cssClass="form-horizontal"
                                                method="get"
                                                modelAttribute="voie">
                                         <div class="form-group">
