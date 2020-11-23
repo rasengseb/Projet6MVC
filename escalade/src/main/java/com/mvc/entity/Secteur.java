@@ -16,7 +16,7 @@ public class Secteur {
     @Column(name = "numero")
     private Integer numero;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_site")
     private Site site;
 

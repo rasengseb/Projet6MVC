@@ -18,7 +18,7 @@
         <div class="col-offset-3 col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Secteur</div>
+                    <div class="panel-title">Topo</div>
                 </div>
                 <div class="panel-body">
                     <form:form action="/secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">

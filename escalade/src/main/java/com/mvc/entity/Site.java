@@ -25,6 +25,10 @@ public class Site {
     @OneToMany(mappedBy = "site")
     private List<Commentaire> commentaires;
 
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
+
     public Site() {
 
     }
@@ -69,4 +73,11 @@ public class Site {
         this.commentaires = commentaires;
     }
 
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
 }

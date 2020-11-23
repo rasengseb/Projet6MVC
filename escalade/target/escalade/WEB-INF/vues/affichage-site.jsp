@@ -21,6 +21,8 @@
                 <div class="panel-heading">
                     <div class="panel-title">Site</div>
                 </div>
+
+                <p> ${ session.utilisateur.pseudo } est connecté(e)</p>
                 <div class="panel-body">
 
                     <form:form action="/secteur/site/${site.id}/addSecteur" cssClass="form-horizontal" method="get"
@@ -28,24 +30,21 @@
                         <div class="form-group">
                             <label for="nom" class="col-md-3 control-label">Nom : </label>
                             <div class="col-md-9">
-                                    <%--                                <form:input path="nom" cssClass="form-control" value="${site.nom}"/>--%>
-                                <p id="nom">${site.nom}</p>
+                                <form:input path="nom" cssClass="form-control" value="${site.nom}" readonly="true"/>
                             </div>
                         </div>
 
+<%--                        ADRESSE PART--%>
                         <div class="form-group">
-                            <label for="adresse" class="col-md-3 control-label">Adresse :</label>
+                            <label class="col-md-3 control-label">Adresse :</label>
                             <div class="col-md-9">
-                                <p id="adresse">
-                                <p>${site.adresse.numero}</p>
-                                <p>${site.adresse.rue}</p>
-                                <p>${site.adresse.codePostal}</p>
-                                <p>${site.adresse.ville}</p>
-                                </p>
-                                    <%--                                <form:input path="adresse.numero" cssClass="form-control" value="${site.adresse.numero} ${site.adresse.rue} ${site.adresse.codePostal} ${site.adresse.ville}"/>--%>
-                                    <%--                                <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}"/>--%>
-                                    <%--                                <form:input path="adresse.codePostal" cssClass="form-control" value="${site.adresse.codePostal}"/>--%>
-                                    <%--                                <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}"/>--%>
+                                <form:input path="adresse.numero" cssClass="form-control" value="${site.adresse.numero}"
+                                            readonly="true"/>
+                               <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}"
+                                           readonly="true"/>
+                               <form:input path="adresse.codePostal" cssClass="form-control" value="${site.adresse.codePostal}" readonly="true"/>
+                               <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}"
+                                           readonly="true"/>
                             </div>
                         </div>
 
@@ -67,6 +66,18 @@
                         </div>
                     </form:form>
                 </div>
+
+                <%--                        TOPO PART--%>
+<%--                 <form:form action="/site/saveTopo" cssClass="form-horizontal" method="get" modelAttribute="topo">--%>
+
+<%--                    <div class="form-group">--%>
+<%--                        <!-- Button -->--%>
+<%--                        <div class="col-md-offset-3 col-md-9">--%>
+<%--                            <form:button cssClass="btn btn-primary">Ajouter </form:button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </form:form>--%>
+
 
                 <%--                    Affichage liste Secteur du site--%>
 
@@ -98,28 +109,40 @@
                     </div>
                 </div>
 
+
+<%--                COMMENTAIRE PART--%>
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="panel-title">Commentaire</div>
                     </div>
                     <div class="panel-body">
                         <!-- loop over and print our customers -->
-                        <c:forEach var="commentaire" items="${commentaire}">
+                        <c:forEach var="commentaires" items="${commentaires}">
                             <tr>
-                                <td>${commentaire.utilisateur.nom}</td>
+                                <td>${commentaires.utilisateur.pseudo}</td>
 
                                 <td>
-                                        ${commentaire.commentaire}
+                                        ${commentaires.commentaire}
                                 </td>
 
                             </tr>
 
                         </c:forEach>
-                        <!-- Button -->
-                        <%--                            <div class="col-md-offset-3 col-md-9">--%>
-                        <%--                                <form:button cssClass="btn btn-primary">Ajouter Secteur</form:button>--%>
-                        <%--                            </div>--%>
                     </div>
+
+                    <form:form action="/site/saveCommentaire/${siteId}" cssClass="form-horizontal" method="post"
+                               modelAttribute="commentaire">
+                        <div class="form-group">
+                            <label for="commentaire" class="col-md-3 control-label">Commentaire : </label>
+                            <div class="col-md-offset-3 col-md-9">
+                                <form:input path="commentaire" cssClass="form-control"/>
+                            </div>
+                            <!-- Button -->
+                            <div class="col-md-offset-3 col-md-9">
+                                <form:button cssClass="btn btn-primary">Commenter</form:button>
+                            </div>
+                        </div>
+                    </form:form>
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 package com.mvc.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "utilisateur")
@@ -27,6 +28,15 @@ public class Utilisateur {
 
     @Column(name = "admin")
     private boolean isAdmin;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Site> site;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Reservation> reservations;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Commentaire> commentaires;
 
     public Utilisateur() {
     }
@@ -87,4 +97,27 @@ public class Utilisateur {
         isAdmin = admin;
     }
 
+    public List<Site> getSite() {
+        return site;
+    }
+
+    public void setSite(List<Site> site) {
+        this.site = site;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires = commentaires;
+    }
 }

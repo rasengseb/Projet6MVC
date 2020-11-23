@@ -3,7 +3,9 @@ package com.mvc.controller;
 import com.mvc.entity.Adresse;
 import com.mvc.entity.Secteur;
 import com.mvc.entity.Site;
+import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.AdresseService;
+import com.mvc.service.SiteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class AdresseController {
     @Autowired
     private AdresseService adresseService;
 
+    @Autowired
+    private SiteService siteService;
+
     @GetMapping
     public String showFormForAdd(Model model){
         LOG.debug("inside show adresse-form handler method");
@@ -32,9 +37,9 @@ public class AdresseController {
     }
 
     @PostMapping("/saveAdresse")
-    public String saveAdresse(@ModelAttribute("adresse")Adresse adresse, @RequestParam("siteId") Integer id){
-        Site site = new Site();
-        site.setId(id);
+    public String saveAdresse(@ModelAttribute("adresse")Adresse adresse, @RequestParam("siteId") Integer id) throws RessourceNotFoundException {
+        Site site = siteService.getSite(id);
+        site.setAdresse(adresse);
         adresse.setSite(site);
         adresseService.saveAdresse(adresse);
         return "adresse-form";

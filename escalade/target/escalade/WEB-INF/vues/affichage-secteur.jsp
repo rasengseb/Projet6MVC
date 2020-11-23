@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="numero" class="col-md-3 control-label">Secteur numéro </label>
                             <div class="col-md-9">
-                                <form:input path="numero" cssClass="form-control" value="${secteur.numero}"/>
+                                <form:input path="numero" cssClass="form-control" value="${secteur.numero}" readonly="true"/>
                             </div>
                         </div>
 

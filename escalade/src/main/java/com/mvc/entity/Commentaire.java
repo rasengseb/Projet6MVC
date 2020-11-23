@@ -11,11 +11,11 @@ public class Commentaire {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_site")
     private Site site;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 

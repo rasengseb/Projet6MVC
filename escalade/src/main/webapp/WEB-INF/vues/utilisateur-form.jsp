@@ -95,6 +95,13 @@
                                 <form:input path="cmdp" cssClass="form-control"/>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-md-offset-3 col-md-9">
+                                <form:button cssClass="btn btn-primary">Connexion</form:button>
+                            </div>
+                        </div>
                     </form:form>
                 </div>
             </div>
