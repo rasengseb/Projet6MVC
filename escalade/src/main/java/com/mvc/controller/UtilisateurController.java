@@ -49,7 +49,7 @@ public class UtilisateurController {
         session.setUtilisateur(utilisateurService.getUtilisateur(connexion));
         session.setConnect(true);
         //attributes.addFlashAttribute("session", session);
-        return "redirect:/site/getAllSite";
+        return "redirect:/accueil/profile";
     }
 
     @PostMapping("/saveUtilisateur")

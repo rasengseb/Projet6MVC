@@ -14,6 +14,9 @@
 
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+
 <div class="container">
     <div class="row">
         <div class="col-offset-3 col-md-6">

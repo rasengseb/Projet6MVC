@@ -2,7 +2,6 @@ package com.mvc.entity;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
