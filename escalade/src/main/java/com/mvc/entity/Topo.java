@@ -22,6 +22,15 @@ public class Topo {
     @Column(name = "parution")
     private Date dateParution;
 
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
+
+    @ManyToOne
+    @JoinColumn(name = "site_id")
+    private Site site;
+
+
     @OneToMany(mappedBy = "topo")
     private List<Reservation> reservations;
 
@@ -67,5 +76,21 @@ public class Topo {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
     }
 }

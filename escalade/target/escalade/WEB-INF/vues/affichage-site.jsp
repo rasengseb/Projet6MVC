@@ -14,6 +14,9 @@
 
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+
 <div class="container">
     <div class="row">
         <div class="col-offset-3 col-md-6">
@@ -21,8 +24,6 @@
                 <div class="panel-heading">
                     <div class="panel-title">Site</div>
                 </div>
-
-                <p> ${ session.utilisateur.pseudo } est connecté(e)</p>
                 <div class="panel-body">
 
                     <form:form action="/secteur/site/${site.id}/addSecteur" cssClass="form-horizontal" method="get"
@@ -34,17 +35,18 @@
                             </div>
                         </div>
 
-<%--                        ADRESSE PART--%>
+                        <%--                        ADRESSE PART--%>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Adresse :</label>
                             <div class="col-md-9">
                                 <form:input path="adresse.numero" cssClass="form-control" value="${site.adresse.numero}"
                                             readonly="true"/>
-                               <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}"
-                                           readonly="true"/>
-                               <form:input path="adresse.codePostal" cssClass="form-control" value="${site.adresse.codePostal}" readonly="true"/>
-                               <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}"
-                                           readonly="true"/>
+                                <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}"
+                                            readonly="true"/>
+                                <form:input path="adresse.codePostal" cssClass="form-control"
+                                            value="${site.adresse.codePostal}" readonly="true"/>
+                                <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}"
+                                            readonly="true"/>
                             </div>
                         </div>
 
@@ -68,15 +70,14 @@
                 </div>
 
                 <%--                        TOPO PART--%>
-<%--                 <form:form action="/site/saveTopo" cssClass="form-horizontal" method="get" modelAttribute="topo">--%>
-
-<%--                    <div class="form-group">--%>
-<%--                        <!-- Button -->--%>
-<%--                        <div class="col-md-offset-3 col-md-9">--%>
-<%--                            <form:button cssClass="btn btn-primary">Ajouter </form:button>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </form:form>--%>
+                <form:form action="/site/showTopo/${siteId}" cssClass="form-horizontal" method="get" modelAttribute="topo">
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <form:button cssClass="btn btn-primary">Ajouter Topo</form:button>
+                        </div>
+                    </div>
+                </form:form>
 
 
                 <%--                    Affichage liste Secteur du site--%>
@@ -110,7 +111,7 @@
                 </div>
 
 
-<%--                COMMENTAIRE PART--%>
+                <%--                COMMENTAIRE PART--%>
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="panel-title">Commentaire</div>

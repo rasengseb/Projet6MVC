@@ -9,10 +9,9 @@
     <title>Les Amis de L'escalade</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-
+<body>
 <%@ include file="header.jsp" %>
 
 <%--Corps de la page web--%>

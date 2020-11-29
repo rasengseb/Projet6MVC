@@ -8,6 +8,7 @@ import com.mvc.entity.Topo;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.CommentaireService;
 import com.mvc.service.SiteService;
+import com.mvc.service.TopoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,12 @@ public class SiteController {
     @Autowired
     private CommentaireService commentaireService;
 
+    @Autowired
+    private TopoService topoService;
+
 
     @GetMapping
-    public String showFormForAdd(Model model){
+    public String showFormForAdd(Model model) {
         LOG.debug("inside show site-form handler method");
         Site site = new Site();
         model.addAttribute("site", site);
@@ -44,14 +48,14 @@ public class SiteController {
     }
 
     @PostMapping("/saveSite")
-    public String saveSite(@ModelAttribute("site")Site site, @ModelAttribute("session") Session session){
+    public String saveSite(@ModelAttribute("site") Site site, @ModelAttribute("session") Session session) {
         site.setUtilisateur(session.getUtilisateur());
         siteService.saveSite(site);
         return "redirect:/site";
     }
 
     @GetMapping("/getAllSite")
-    public String getAllSite(Model model){
+    public String getAllSite(Model model) {
         List<Site> sites = siteService.getAllSite();
         model.addAttribute("sites", sites);
         return "site-list";
@@ -81,9 +85,20 @@ public class SiteController {
         return "redirect:/site/showSite/{siteId}";
     }
 
-    @GetMapping("/saveTopo/{siteId}")
-    public String saveTopo(@ModelAttribute("topo")Topo topo, @PathVariable("siteId") int id){
-        return "";
+    @PostMapping("/saveTopo/{siteId}")
+    public String saveTopo(@ModelAttribute("topo") Topo topo, @PathVariable("siteId") int id, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
+        Site site = siteService.getSite(id);
+        topo.setSite(site);
+        topo.setUtilisateur(session.getUtilisateur());
+        topoService.saveTopo(topo);
+        return "redirect:/site/showSite/{siteId}";
     }
 
+    @GetMapping("/showTopo/{siteId}")
+        public String showTopo(Model model, @PathVariable("siteId") int id){
+        model.addAttribute("siteId", id);
+        Topo topo = new Topo();
+        model.addAttribute("topo", topo);
+        return "topo-form";
+        }
 }

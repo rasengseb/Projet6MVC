@@ -1,6 +1,7 @@
 package com.mvc.service;
 
 import com.mvc.entity.Site;
+import com.mvc.entity.Utilisateur;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,11 @@ public class SiteServiceImpl implements SiteService {
         return siteRepository.findById(id).orElseThrow(
                 () -> new RessourceNotFoundException(id));
     }
+
+    @Override
+    public List<Site> getAllByUtilisateur(Utilisateur utilisateur) {
+        return siteRepository.getAllByUtilisateur(utilisateur);
+    }
+
+
 }

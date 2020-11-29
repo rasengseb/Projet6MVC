@@ -33,6 +33,9 @@ public class Utilisateur {
     private List<Site> site;
 
     @OneToMany(mappedBy = "utilisateur")
+    private List<Topo> topos;
+
+    @OneToMany(mappedBy = "utilisateur")
     private List<Reservation> reservations;
 
     @OneToMany(mappedBy = "utilisateur")
@@ -103,6 +106,14 @@ public class Utilisateur {
 
     public void setSite(List<Site> site) {
         this.site = site;
+    }
+
+    public List<Topo> getTopos() {
+        return topos;
+    }
+
+    public void setTopos(List<Topo> topos) {
+        this.topos = topos;
     }
 
     public List<Reservation> getReservations() {

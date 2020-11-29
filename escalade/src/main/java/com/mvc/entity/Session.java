@@ -20,7 +20,7 @@ public class Session implements Serializable {
     }
 
     public Session() {
-
+        this.isConnect=false;
     }
 
     public Utilisateur getUtilisateur() {

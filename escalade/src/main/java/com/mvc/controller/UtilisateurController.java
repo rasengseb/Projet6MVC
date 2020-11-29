@@ -29,11 +29,6 @@ public class UtilisateurController {
     private UtilisateurService utilisateurService;
 
 
-    @ModelAttribute("session")
-    public Session addMyBean3ToSessionScope() {
-        return new Session();
-    }
-
     @GetMapping
     public String showFormForAdd(Model model) {
         LOG.debug("inside show utilisateur-form handler method");

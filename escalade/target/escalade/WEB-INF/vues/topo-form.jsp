@@ -21,14 +21,28 @@
                     <div class="panel-title">Topo</div>
                 </div>
                 <div class="panel-body">
-                    <form:form action="/secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">
+                    <form:form action="/site/saveTopo/${siteId}" cssClass="form-horizontal" method="post" modelAttribute="topo">
                         <form:hidden path="id"/>
                         <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
 
                         <div class="form-group">
-                            <label for="numero" class="col-md-3 control-label">Secteur Numéro : </label>
+                            <label for="nom" class="col-md-3 control-label">Nom : </label>
                             <div class="col-md-9">
-                                <form:input path="numero" cssClass="form-control" type="number"/>
+                                <form:input path="nom" cssClass="form-control" type="text"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="col-md-3 control-label">Description : </label>
+                            <div class="col-md-9">
+                                <form:input path="description" cssClass="form-control" type="text"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Date de parution : </label>
+                            <div class="col-md-9">
+                                <form:input path="dateParution" cssClass="form-control" type="date"/>
                             </div>
                         </div>
 

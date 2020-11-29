@@ -10,49 +10,101 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <style type="text/css">
-        <%@include file="/WEB-INF/css/tabs.css"%>
-    </style>
+
 
 </head>
 <body>
-
 <%@ include file="header.jsp" %>
 
+<div class="row">
+    <div class="container">
 
-<div class="container">
+        <ul class="nav nav-tabs nav-stacked col-md-3">
+            <li class="active"><a data-toggle="tab" href="#infos">Mes Infos</a></li>
+            <li><a data-toggle="tab" href="#sites">Mes Sites</a></li>
+            <li><a data-toggle="tab" href="#resa">Mes Resa</a></li>
+            <li><a data-toggle="tab" href="#topo">Mes Topos</a></li>
+        </ul>
 
-    <div class="container-onglets">
-        <div class="onglets active" data-anim="1">Mes Infos</div>
-        <div class="onglets" data-anim="2">Mes Sites</div>
-        <div class="onglets" data-anim="3">Mes Résa</div>
-    </div>
+        <div class="tab-content col-md-9">
 
-    <div class="contenu activeContenu" data-anim="1">
-        <h3>Infos</h3>
-        <hr>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum
-            doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
-    </div>
 
-    <div class="contenu" data-anim="2">
-        <h3>Sites</h3>
-        <hr>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum
-            doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
-    </div>
+            <%--            PANNEAU INFORMARTION UTILISATEUR--%>
+            <div id="infos" class="tab-pane active">
+                <h3>Mes Infos</h3>
+                <div class="form-group">
+                    <label for="pseudo" class="col-md-3 control-label">Pseudo : </label>
+                    <div class="col-md-9">
+                        <p id="pseudo">${session.utilisateur.pseudo}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prenom" class="col-md-3 control-label">Prénom : </label>
+                    <div class="col-md-9">
+                        <p id="prenom">${session.utilisateur.prenom}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nom" class="col-md-3 control-label">Nom : </label>
+                    <div class="col-md-9">
+                        <p id="nom">${session.utilisateur.nom}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mail" class="col-md-3 control-label">Email : </label>
+                    <div class="col-md-9">
+                        <p id="mail">${session.utilisateur.mail}</p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="contenu" data-anim="3">
-        <h3>Resa</h3>
-        <hr>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis alias quod, dolores eum illum
-            doloremque assumenda odio architecto, dolorum vitae nobis, quo deleniti ipsum.</p>
+
+            <%--    PANNEAU SITES UTILISATEUR--%>
+            <div id="sites" class="tab-pane">
+                <h3>Mes Sites</h3>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>Nom</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <!-- loop over and print our customers -->
+                        <c:forEach var="tempSites" items="${sites}">
+                            <tr>
+                                <td>${tempSites.nom}</td>
+                                <td>
+                                    <form:form action="/site/showSite/${tempSites.id}" cssClass="form-horizontal" method="get" modelAttribute="sites">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <form:button cssClass="btn btn-primary">Voir</form:button>
+                                            </div>
+                                        </div>
+                                    </form:form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+            </div>
+
+
+<%--                PANNEAU RESERVATION UTILISATEUR--%>
+            <div id="resa" class="tab-pane">
+                <h3>Mes Resa</h3>
+            </div>
+
+
+<%--            PANNEAU TOPOS UTILISATEUR--%>
+            <div id="topo" class="tab-pane">
+                <h3>Mes Topos</h3>
+            </div>
+
+        </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    <%@include file="/WEB-INF/js/tabs.js"%>
-</script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

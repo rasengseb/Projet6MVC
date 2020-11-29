@@ -29,6 +29,9 @@ public class Site {
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
+    @OneToMany(mappedBy = "site")
+    private List<Topo> topos;
+
     public Site() {
 
     }
@@ -79,5 +82,13 @@ public class Site {
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
+    }
+
+    public List<Topo> getTopos() {
+        return topos;
+    }
+
+    public void setTopos(List<Topo> topos) {
+        this.topos = topos;
     }
 }
