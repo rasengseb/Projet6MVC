@@ -2,15 +2,15 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Les Amis de L'escalade</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="panel-body">
                     <form:form action="/site/saveTopo/${siteId}" cssClass="form-horizontal" method="post" modelAttribute="topo">
-                        <form:hidden path="id"/>
+
                         <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
 
                         <div class="form-group">
@@ -42,7 +42,8 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Date de parution : </label>
                             <div class="col-md-9">
-                                <form:input path="dateParution" cssClass="form-control" type="date"/>
+                                <fmt:formatDate pattern="dd/MM/yyyy" value="${topo.dateParution}" var="date"/>
+                                <form:input path="dateParution" cssClass="form-control" type="date" value="${date}"/>
                             </div>
                         </div>
 

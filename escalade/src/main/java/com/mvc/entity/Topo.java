@@ -1,5 +1,7 @@
 package com.mvc.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -20,7 +22,7 @@ public class Topo {
     private String description;
 
     @Column(name = "parution")
-    private Date dateParution;
+    private String dateParution;
 
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
@@ -62,11 +64,11 @@ public class Topo {
         this.description = description;
     }
 
-    public Date getDateParution() {
+    public String getDateParution() {
         return dateParution;
     }
 
-    public void setDateParution(Date dateParution) {
+    public void setDateParution(String dateParution) {
         this.dateParution = dateParution;
     }
 

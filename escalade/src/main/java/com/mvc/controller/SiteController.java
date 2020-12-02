@@ -51,7 +51,7 @@ public class SiteController {
     public String saveSite(@ModelAttribute("site") Site site, @ModelAttribute("session") Session session) {
         site.setUtilisateur(session.getUtilisateur());
         siteService.saveSite(site);
-        return "redirect:/site";
+        return "redirect:/accueil/profile";
     }
 
     @GetMapping("/getAllSite")

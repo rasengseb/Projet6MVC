@@ -7,10 +7,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Les Amis de L'escalade</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -18,94 +17,87 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">S'inscrire</div>
+    <div class="row col-sm-12>">
+        <div class="col-sm-6">
+            <div class="card">
+                <h3 class="card-header">Inscription</h3>
+                <div class="card-body">
+                    <form class="card-text">
+                        <form:form action="utilisateur/saveUtilisateur" cssClass="form-horizontal"
+                                   method="post" modelAttribute="utilisateur">
+
+                            <!-- need to associate this data with customer id -->
+                            <form:hidden path="id"/>
+
+                            <div class="form-group row">
+                                <label for="pseudo" class="col-form-label col-md-3">Pseudo : </label>
+                                <div class="col-md-9">
+                                    <form:input path="pseudo" cssClass="form-control" type="text" placeholder="Pseudo"
+                                                id="pseudo"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="mdp" class="col-form-label col-md-3">Mot de Passe :</label>
+                                <div class="col-md-9">
+                                    <form:input path="mdp" type="password" cssClass="form-control" id="mdp"
+                                                placeholder="Mot de passe"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="prenom" class="col-form-label col-md-3">Prénom :</label>
+                                <div class="col-md-9">
+                                    <form:input path="prenom" cssClass="form-control" id="prenom" type="text"
+                                                palceholder="Prénom"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nom" class="col-form-label col-md-3">Nom :</label>
+                                <div class="col-md-9">
+                                    <form:input path="nom" cssClass="form-control" type="text" placeholder="Nom"
+                                                id="nom"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="mail" class="col-form-label col-md-3">Email :</label>
+                                <div class="col-md-9">
+                                    <form:input path="mail" cssClass="form-control" type="email" id="mail"
+                                                placeholder="name@example.com"/>
+                                </div>
+                            </div>
+                            <button class="btn btn-dark" type="submit">Inscription</button>
+
+                        </form:form>
+                    </form>
                 </div>
-                <div class="panel-body">
-                    <form:form action="utilisateur/saveUtilisateur" cssClass="form-horizontal"
-                               method="post" modelAttribute="utilisateur">
-
-                        <!-- need to associate this data with customer id -->
-                        <form:hidden path="id"/>
-
-                        <div class="form-group">
-                            <label for="pseudo" class="col-md-3 control-label">Pseudo : </label>
-                            <div class="col-md-9">
-                                <form:input path="pseudo" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mdp" class="col-md-3 control-label">Mot de Passe : </label>
-                            <div class="col-md-9">
-                                <form:input path="mdp" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="prenom" class="col-md-3 control-label">Prénom : </label>
-                            <div class="col-md-9">
-                                <form:input path="prenom" cssClass="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="nom" class="col-md-3 control-label">Nom : </label>
-                            <div class="col-md-9">
-                                <form:input path="nom" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mail" class="col-md-3 control-label">Email : </label>
-                            <div class="col-md-9">
-                                <form:input path="mail" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Inscription</form:button>
-                            </div>
-                        </div>
-
-                    </form:form>
-                </div>
-
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Connexion</div>
-                </div>
-                <div class="panel-body">
-                    <form:form action="utilisateur/connexion" cssClass="form-horizontal" method="post" modelAttribute="connexion">
-
-                        <div class="form-group">
-                            <label for="pseudo" class="col-md-3 control-label">Pseudo</label>
+        <div class="col-sm-6">
+            <div class="card">
+                <h3 class="card-header">Connexion</h3>
+                <div class="card-body">
+                    <form:form action="utilisateur/connexion" cssClass="form-horizontal" method="post"
+                               modelAttribute="connexion" class="card-text">
+                        <div class="form-group row">
+                            <label for="cpseudo" class="col-form-label col-md-3">Pseudo :</label>
                             <div class="col-md-9">
-                                <form:input path="cpseudo" cssClass="form-control"/>
+                                <form:input path="cpseudo" cssClass="form-control" id="cpseudo" placeholder="Pseudo"
+                                            type="text"/>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="mdp" class="col-md-3 control-label"> Mot de Passe</label>
+                        <div class="form-group row">
+                            <label for="cmdp" class="col-form-label col-md-3"> Mot de Passe :</label>
                             <div class="col-md-9">
-                                <form:input path="cmdp" cssClass="form-control"/>
+                                <form:input path="cmdp" cssClass="form-control" id="cmdp" type="password"
+                                            placeholder="Mot de passe"/>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Connexion</form:button>
-                            </div>
-                        </div>
+                        <button class="btn btn-dark" type="submit">Connexion</button>
+
                     </form:form>
                 </div>
             </div>
