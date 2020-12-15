@@ -12,57 +12,47 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+
 <div class="container">
-    <div class="row">
-        <div class="col-offset-3 col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Voie</div>
+    <div class="card">
+        <h1 class="card-header">Nouvelle voie :</h1>
+        <div class="card-body">
+            <form:form action="/voie/saveVoie" cssClass="form-horizontal" method="post" modelAttribute="voie">
+                <form:hidden path="id"/>
+                <input type="text" id=secteurId" name="secteurId" value="${secteurId}" hidden/>
+                <div class="form-group row">
+                    <label for="nom" class="col-form-label col-md-3">Nom :</label>
+                    <div class="col-md-9">
+                        <form:input path="nom" cssClass="form-control" id="nom" type="text"
+                                    palceholder="Nom"/>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <form:form action="/voie/saveVoie" cssClass="form-horizontal" method="post" modelAttribute="voie">
-                        <form:hidden path="id"/>
-
-                        <input type="text" id=secteurId" name="secteurId" value="${secteurId}" hidden/>
-
-
-                        <div class="form-group">
-                            <label for="nom" class="col-md-3 control-label">Nom : </label>
-                            <div class="col-md-9">
-                                <form:input path="nom" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="longueur" class="col-md-3 control-label">Longueur : </label>
-                            <div class="col-md-9">
-                                <form:input path="longueur" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cote" class="col-md-3 control-label">Cote : </label>
-                            <div class="col-md-9">
-                                <form:input path="cote" cssClass="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="description" class="col-md-3 control-label">Description : </label>
-                            <div class="col-md-9">
-                                <form:input path="description" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Enregistrer</form:button>
-                            </div>
-                        </div>
-                    </form:form>
-
+                <div class="form-group row">
+                    <label for="longueur" class="col-form-label col-md-3">Longueur :</label>
+                    <div class="col-md-9">
+                        <form:input path="longueur" cssClass="form-control" id="longueur" type="number"
+                                    palceholder="0m"/>
+                    </div>
                 </div>
-            </div>
+                <div class="form-group row">
+                    <label for="cote" class="col-form-label col-md-3">Côte :</label>
+                    <div class="col-md-9">
+                        <form:input path="cote" cssClass="form-control" id="cote" type="text"
+                                    palceholder="7c"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-form-label col-md-3">Description :</label>
+                    <div class="col-md-9">
+                        <form:input path="description" cssClass="form-control" id="description" type="text"
+                                    palceholder="description"/>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Enregistrer</button>
+            </form:form>
         </div>
     </div>
 </div>

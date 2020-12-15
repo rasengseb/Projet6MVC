@@ -12,58 +12,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+
 <div class="container">
-    <div class="row">
-        <div class="col-offset-3 col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Adresse</div>
+    <div class="card">
+        <h1 class="card-header">Nouvelle Adresse :</h1>
+        <div class="card-body">
+            <form:form action="/adresse/saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
+                <form:hidden path="id"/>
+
+                <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
+
+                <div class="form-group row">
+                    <label for="numero" class="col-md-3 col-form-label">Numéro : </label>
+                    <div class="col-md-9">
+                        <form:input path="numero" cssClass="form-control" type="text" placeholder="1"/>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <form:form action="/adresse/saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
-                        <form:hidden path="id"/>
 
-                        <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
-
-                        <div class="form-group">
-                            <label for="numero" class="col-md-3 control-label">Numéro : </label>
-                            <div class="col-md-9">
-                                <form:input path="numero" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="rue" class="col-md-3 control-label">Rue : </label>
-                            <div class="col-md-9">
-                                <form:input path="rue" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="codePostal" class="col-md-3 control-label">Code Postal : </label>
-                            <div class="col-md-9">
-                                <form:input path="codePostal" cssClass="form-control"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ville" class="col-md-3 control-label">Ville : </label>
-                            <div class="col-md-9">
-                                <form:input path="ville" cssClass="form-control"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Enregistrer</form:button>
-                            </div>
-                        </div>
-                    </form:form>
-
+                <div class="form-group row">
+                    <label for="rue" class="col-md-3 col-form-label">Rue : </label>
+                    <div class="col-md-9">
+                        <form:input path="rue" cssClass="form-control" type="text" placeholder="rue de ..."/>
+                    </div>
                 </div>
-            </div>
+
+                <div class="form-group row">
+                    <label for="codePostal" class="col-md-3 col-form-label">Code Postal : </label>
+                    <div class="col-md-9">
+                        <form:input path="codePostal" cssClass="form-control" type="text" placeholder="45140"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ville" class="col-md-3 col-form-label">Ville : </label>
+                    <div class="col-md-9">
+                        <form:input path="ville" cssClass="form-control" type="text" placeholder="Ville"/>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Enregistrer</button>
+            </form:form>
         </div>
     </div>
 </div>
+
 </body>
 </html>

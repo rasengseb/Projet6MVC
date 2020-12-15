@@ -36,61 +36,61 @@
         </li>
     </ul>
 
+
+
     <div class="tab-content" id="myTabContent">
 
         <%--            PANNEAU INFORMARTION UTILISATEUR--%>
         <div id="infos" class="tab-pane fade show active" role="tabpanel" aria-labelledby="infos-tab">
             <h3>Mes Infos</h3>
-            <div class="form-group row">
-                <label for="pseudo" class="col-md-3 col-form-label">Pseudo : </label>
-                <p id="pseudo" class="col-md-9 form-control-plaintext">${session.utilisateur.pseudo}</p>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="pseudo" class="col-md-3 col-form-label">Pseudo : </label>
+                        <p id="pseudo" class="col-md-9 form-control-plaintext">${session.utilisateur.pseudo}</p>
+                    </div>
+                    <div class="form-group row">
+                        <label for="prenom" class="col-md-3 col-form-label">Prénom : </label>
+                        <p id="prenom" class="col-md-9 form-control-plaintext">${session.utilisateur.prenom}</p>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nom" class="col-md-3 col-form-label">Nom : </label>
+                        <p id="nom" class="form-control-plaintext col-md-9">${session.utilisateur.nom}</p>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mail" class="col-md-3 col-form-label">Email : </label>
+                        <p id="mail" class="form-control-plaintext col-md-9">${session.utilisateur.mail}</p>
+                    </div>
+                    <form:form cssClass="form-horizontal">
+                        <button class="btn btn-dark" type="submit">Modifier</button>
+                    </form:form>
+                </div>
             </div>
-            <div class="form-group row">
-                <label for="prenom" class="col-md-3 col-form-label">Prénom : </label>
-                <p id="prenom" class="col-md-9 form-control-plaintext">${session.utilisateur.prenom}</p>
-            </div>
-            <div class="form-group row">
-                <label for="nom" class="col-md-3 col-form-label">Nom : </label>
-                <p id="nom" class="form-control-plaintext col-md-9">${session.utilisateur.nom}</p>
-            </div>
-            <div class="form-group row">
-                <label for="mail" class="col-md-3 col-form-label">Email : </label>
-                <p id="mail" class="form-control-plaintext col-md-9">${session.utilisateur.mail}</p>
-            </div>
-            <form:form cssClass="form-horizontal">
-                <button class="btn btn-dark" type="submit">Modifier</button>
-            </form:form>
         </div>
 
 
         <%--    PANNEAU SITES UTILISATEUR--%>
         <div id="sites" class="tab-pane fade" role="tabpanel" aria-labelledby="sites-tab">
             <h3>Mes Sites</h3>
-            <div class="panel-body">
-                <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Nom</th>
+                    <th></th>
+                </tr>
+                <!-- loop over and print our customers -->
+                <c:forEach var="tempSites" items="${sites}">
                     <tr>
-                        <th>Nom</th>
-                        <th></th>
+                        <td>${tempSites.nom}</td>
+                        <td class="form-group">
+                            <form:form action="/site/showSite/${tempSites.id}" cssClass="form-horizontal"
+                                       method="get"
+                                       modelAttribute="sites">
+                                <button class="btn btn-info" type="submit">Voir</button>
+                            </form:form>
+                        </td>
                     </tr>
-                    <!-- loop over and print our customers -->
-                    <c:forEach var="tempSites" items="${sites}">
-                        <tr>
-                            <td>${tempSites.nom}</td>
-                            <td class="form-group">
-                                <form:form action="/site/showSite/${tempSites.id}" cssClass="form-horizontal"
-                                           cssStyle="display: inline-block"
-                                           method="get"
-                                           modelAttribute="sites">
-                                    <button class="btn btn-info" type="submit">Voir</button>
-                                </form:form>
-                                <form:form cssClass="form-horizontal" cssStyle="display: inline-block">
-                                    <button class="btn btn-info" type="submit">Modifier</button>
-                                </form:form>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </div>
+                </c:forEach>
+            </table>
             <form:form action="/site" method="get" cssClass="form-horizontal">
                 <button class="btn btn-dark" type="submit">Ajouter Site</button>
             </form:form>
@@ -100,12 +100,55 @@
         <%--                PANNEAU RESERVATION UTILISATEUR--%>
         <div id="resa" class="tab-pane fade" role="tabpanel" aria-labelledby="resa-tab">
             <h3>Mes Resa</h3>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Nom</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                </tr>
+                <!-- loop over and print our customers -->
+                <c:forEach var="resa" items="${session.utilisateur.reservations}">
+                    <tr>
+                        <td>${resa.topo.nom}</td>
+                        <td><input type="date" value="${resa.dateReservation}" readonly></td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${resa.statut}">
+                                    <p>validé</p>
+                                </c:when>
+                                <c:when test="${!resa.statut}">
+                                    <p>en cours de validation</p>
+                                </c:when>
+                            </c:choose>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
 
 
         <%--            PANNEAU TOPOS UTILISATEUR--%>
         <div id="topo" class="tab-pane fade" role="tabpanel" aria-labelledby="topo-tab">
             <h3>Mes Topos</h3>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Nom</th>
+                    <th></th>
+                </tr>
+                <!-- loop over and print our customers -->
+                <c:forEach var="topo" items="${session.utilisateur.topos}">
+                    <tr>
+                        <td>${topo.nom}</td>
+                        <td class="form-group">
+                            <form:form action="" cssClass="form-horizontal"
+                                       method="get"
+                                       modelAttribute="sites">
+                                <button class="btn btn-info" type="submit">Voir</button>
+                            </form:form>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
         </div>
 
     </div>

@@ -12,37 +12,29 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<%@ include file="header.jsp" %>
+
 <div class="container">
-    <div class="row">
-        <div class="col-offset-3 col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Secteur</div>
+    <div class="card">
+        <h1 class="card-header">Nouveau Secteur :</h1>
+        <div class="card-body">
+            <form:form action="/secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">
+                <form:hidden path="id"/>
+                <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
+
+                <div class="form-group row">
+                    <label for="numero" class="col-md-3 col-form-label">Secteur Numéro : </label>
+                    <div class="col-md-9">
+                        <form:input path="numero" cssClass="form-control" type="number" placeholder="0"/>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <form:form action="/secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">
-                        <form:hidden path="id"/>
-                        <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
 
-                        <div class="form-group">
-                            <label for="numero" class="col-md-3 control-label">Secteur Numéro : </label>
-                            <div class="col-md-9">
-                                <form:input path="numero" cssClass="form-control" type="number"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Enregistrer</form:button>
-                            </div>
-                        </div>
-                    </form:form>
-
-                </div>
-            </div>
+                <button type="submit" class="btn btn-dark">Enregistrer</button>
+            </form:form>
         </div>
     </div>
 </div>
+
 </body>
 </html>

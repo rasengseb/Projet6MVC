@@ -80,5 +80,7 @@ public class Adresse {
         this.ville = ville;
     }
 
-
+    public String toString(){
+        return this.numero + " " + this.rue + " " + this.codePostal + " " + this.ville;
+    }
 }

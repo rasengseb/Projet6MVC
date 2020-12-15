@@ -1,7 +1,6 @@
 package com.mvc.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "reservation")
@@ -13,15 +12,17 @@ public class Reservation {
     private Integer id;
 
     @Column(name = "dateReservation")
-    private Date dateReservation;
+    private String dateReservation;
 
     @Column(name = "statut")
     private boolean statut;
 
     @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
     @ManyToOne
+    @JoinColumn(name = "topo_id")
     private Topo topo;
 
 
@@ -36,11 +37,11 @@ public class Reservation {
         this.id = id;
     }
 
-    public Date getDateReservation() {
+    public String getDateReservation() {
         return dateReservation;
     }
 
-    public void setDateReservation(Date dateReservation) {
+    public void setDateReservation(String dateReservation) {
         this.dateReservation = dateReservation;
     }
 

@@ -1,6 +1,7 @@
 package com.mvc.service;
 
 import com.mvc.entity.Topo;
+import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.repository.TopoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,11 @@ public class TopoServiceImpl implements TopoService{
     @Override
     public void saveTopo(Topo topo) {
         topoRepository.save(topo);
+    }
+
+    @Override
+    public Topo getTopo(int id) throws RessourceNotFoundException {
+        return topoRepository.findById(id).orElseThrow(
+                () -> new RessourceNotFoundException(id));
     }
 }

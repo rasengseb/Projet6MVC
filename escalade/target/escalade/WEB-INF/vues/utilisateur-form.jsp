@@ -49,7 +49,7 @@
                                 <label for="prenom" class="col-form-label col-md-3">Prénom :</label>
                                 <div class="col-md-9">
                                     <form:input path="prenom" cssClass="form-control" id="prenom" type="text"
-                                                palceholder="Prénom"/>
+                                                palceholder="Prenom"/>
                                 </div>
                             </div>
                             <div class="form-group row">

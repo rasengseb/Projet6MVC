@@ -1,12 +1,10 @@
 package com.mvc.controller;
 
 
-import com.mvc.entity.Commentaire;
-import com.mvc.entity.Session;
-import com.mvc.entity.Site;
-import com.mvc.entity.Topo;
+import com.mvc.entity.*;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.CommentaireService;
+import com.mvc.service.ReservationService;
 import com.mvc.service.SiteService;
 import com.mvc.service.TopoService;
 import org.slf4j.Logger;
@@ -19,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.time.OffsetTime;
 import java.util.List;
 
 @Controller
@@ -37,6 +36,9 @@ public class SiteController {
 
     @Autowired
     private TopoService topoService;
+
+    @Autowired
+    private ReservationService reservationService;
 
 
     @GetMapping
@@ -100,5 +102,22 @@ public class SiteController {
         Topo topo = new Topo();
         model.addAttribute("topo", topo);
         return "topo-form";
-        }
+    }
+
+    @GetMapping("/affichageTopo/{topoId}")
+    public String afficherTopo(Model model, @PathVariable("topoId") int id) throws RessourceNotFoundException {
+        Topo topo = topoService.getTopo(id);
+        Reservation reservation = new Reservation();
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("topo", topo);
+        return "affichage-topo";
+    }
+
+    @PostMapping("/reservation/{topoId}")
+    public String reserverTopo (@PathVariable("topoId") int id, @ModelAttribute("session") Session session, @ModelAttribute("reservation")Reservation reservation) throws RessourceNotFoundException {
+        reservation.setUtilisateur(session.getUtilisateur());
+        reservation.setTopo(topoService.getTopo(id));
+        reservationService.saveReservation(reservation);
+        return "redirect:/site/affichageTopo/{topoId}";
+    }
 }

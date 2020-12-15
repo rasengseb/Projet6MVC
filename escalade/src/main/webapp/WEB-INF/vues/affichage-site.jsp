@@ -17,137 +17,144 @@
 <%@ include file="header.jsp" %>
 
 <div class="container">
-    <div class="row">
-        <div class="col-offset-3 col-md-6">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <div class="panel-title">Site</div>
-                </div>
-                <div class="panel-body">
+    <div class="card">
+        <h3 class="card-header">${site.nom}</h3>
+        <div class="card-body">
 
+            <div class="card">
+                <div class="card-header">Adresse :</div>
+                <div class="card-body">
+                    <c:choose>
+                        <c:when test="${ site.adresse != null }">
+                            <p>${ site.adresse.toString() }</p>
+                            <form:form>
+                                <button type="submit" class="btn btn-info">Modifier</button>
+                            </form:form>
+                        </c:when>
+
+                        <c:when test="${ site.adresse == null }">
+                            <p>Aucune adresse enregistée</p>
+                            <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
+                                       modelAttribute="site">
+                                <button type="submit" class="btn btn-info">Ajouter Adresse</button>
+                            </form:form>
+                        </c:when>
+                    </c:choose>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Secteur :</div>
+                <div class="card-body">
+                    <c:choose>
+                        <c:when test="${site.secteurs == null }">
+                            <p>Aucun secteur renseigné pour le moment</p>
+                        </c:when>
+                        <c:when test="${site.secteurs != null}">
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th></th>
+                                </tr>
+                                <c:forEach var="secteur" items="${secteur}">
+                                    <tr>
+                                        <td>Secteur numéro ${secteur.numero}</td>
+                                        <td>
+                                            <form:form action="/secteur/showSecteur/${secteur.id}"
+                                                       cssClass="form-horizontal"
+                                                       method="get"
+                                                       modelAttribute="secteur">
+                                                <button type="submit" class="btn btn-info">Voir</button>
+                                            </form:form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                        </c:when>
+                    </c:choose>
                     <form:form action="/secteur/site/${site.id}/addSecteur" cssClass="form-horizontal" method="get"
                                modelAttribute="site">
-                        <div class="form-group">
-                            <label for="nom" class="col-md-3 control-label">Nom : </label>
-                            <div class="col-md-9">
-                                <form:input path="nom" cssClass="form-control" value="${site.nom}" readonly="true"/>
-                            </div>
-                        </div>
-
-                        <%--                        ADRESSE PART--%>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Adresse :</label>
-                            <div class="col-md-9">
-                                <form:input path="adresse.numero" cssClass="form-control" value="${site.adresse.numero}"
-                                            readonly="true"/>
-                                <form:input path="adresse.rue" cssClass="form-control" value="${site.adresse.rue}"
-                                            readonly="true"/>
-                                <form:input path="adresse.codePostal" cssClass="form-control"
-                                            value="${site.adresse.codePostal}" readonly="true"/>
-                                <form:input path="adresse.ville" cssClass="form-control" value="${site.adresse.ville}"
-                                            readonly="true"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Ajouter Secteur</form:button>
-                            </div>
-                        </div>
-                    </form:form>
-
-                    <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
-                               modelAttribute="site">
-                        <div class="form-group">
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Ajouter Adresse</form:button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-info">Ajouter Secteur</button>
                     </form:form>
                 </div>
-
-                <%--                        TOPO PART--%>
-                <form:form action="/site/showTopo/${siteId}" cssClass="form-horizontal" method="get" modelAttribute="topo">
-                    <div class="form-group">
-                        <!-- Button -->
-                        <div class="col-md-offset-3 col-md-9">
-                            <form:button cssClass="btn btn-primary">Ajouter Topo</form:button>
-                        </div>
-                    </div>
-                </form:form>
-
-
-                <%--                    Affichage liste Secteur du site--%>
-
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title">Secteurs</div>
-                    </div>
-                    <div class="panel-body">
-                        <!-- loop over and print our customers -->
-                        <c:forEach var="secteur" items="${secteur}">
-                            <tr>
-                                <td>Secteur numéro ${secteur.numero}</td>
-
-                                <td>
-                                    <form:form action="/secteur/showSecteur/${secteur.id}" cssClass="form-horizontal"
-                                               method="get"
-                                               modelAttribute="secteur">
-                                        <div class="form-group">
-                                            <div class="col-md-offset-3 col-md-9">
-                                                <form:button cssClass="btn btn-primary">Voir</form:button>
-                                            </div>
-                                        </div>
-                                    </form:form>
-                                </td>
-
-                            </tr>
-
-                        </c:forEach>
-                    </div>
-                </div>
-
-
-                <%--                COMMENTAIRE PART--%>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="panel-title">Commentaire</div>
-                    </div>
-                    <div class="panel-body">
-                        <!-- loop over and print our customers -->
-                        <c:forEach var="commentaires" items="${commentaires}">
-                            <tr>
-                                <td>${commentaires.utilisateur.pseudo}</td>
-
-                                <td>
-                                        ${commentaires.commentaire}
-                                </td>
-
-                            </tr>
-
-                        </c:forEach>
-                    </div>
-
-                    <form:form action="/site/saveCommentaire/${siteId}" cssClass="form-horizontal" method="post"
-                               modelAttribute="commentaire">
-                        <div class="form-group">
-                            <label for="commentaire" class="col-md-3 control-label">Commentaire : </label>
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:input path="commentaire" cssClass="form-control"/>
-                            </div>
-                            <!-- Button -->
-                            <div class="col-md-offset-3 col-md-9">
-                                <form:button cssClass="btn btn-primary">Commenter</form:button>
-                            </div>
-                        </div>
-                    </form:form>
-                </div>
-
             </div>
+
+            <div class="card">
+                <div class="card-header">Topos :</div>
+                <div class="card-body">
+                    <c:choose>
+                        <c:when test="${site.topos == null }">
+                            <p>Aucun topo n'est enregistré. Peut-être en avez-vous un à proposer ?</p>
+                        </c:when>
+                        <c:when test="${site.topos != null }">
+                            <table class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th></th>
+                                </tr>
+                                <c:forEach var="topo" items="${site.topos}">
+                                    <tr>
+                                        <td>${topo.nom}</td>
+                                        <td>
+                                            <form:form cssClass="form-horizontal"
+                                                       method="get"
+                                                       modelAttribute="topo"
+                                                       action="/site/affichageTopo/${topo.id}">
+                                                <button class="btn btn-info">Voir</button>
+                                            </form:form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                        </c:when>
+                    </c:choose>
+                    <form:form action="/site/showTopo/${siteId}" cssClass="form-horizontal" method="get"
+                               modelAttribute="topo">
+                        <button class="btn btn-info" type="submit">Ajouter Topo</button>
+                    </form:form>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
+
+<%--                COMMENTAIRE PART--%>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">Commentaire</div>
+    </div>
+    <div class="panel-body">
+        <!-- loop over and print our customers -->
+        <c:forEach var="commentaires" items="${commentaires}">
+            <tr>
+                <td>${commentaires.utilisateur.pseudo}</td>
+
+                <td>
+                        ${commentaires.commentaire}
+                </td>
+
+            </tr>
+
+        </c:forEach>
+    </div>
+
+    <form:form action="/site/saveCommentaire/${siteId}" cssClass="form-horizontal" method="post"
+               modelAttribute="commentaire">
+        <div class="form-group">
+            <label for="commentaire" class="col-md-3 control-label">Commentaire : </label>
+            <div class="col-md-offset-3 col-md-9">
+                <form:input path="commentaire" cssClass="form-control"/>
+            </div>
+            <!-- Button -->
+            <div class="col-md-offset-3 col-md-9">
+                <form:button cssClass="btn btn-primary">Commenter</form:button>
+            </div>
+        </div>
+    </form:form>
+</div>
+
+
 </body>
 </html>

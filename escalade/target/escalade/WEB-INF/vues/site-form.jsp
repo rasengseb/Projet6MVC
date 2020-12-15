@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-dark" type="submit">Enregistrer</button>
+                <button class="btn btn-info" type="submit">Enregistrer</button>
             </form:form>
         </div>
     </div>
