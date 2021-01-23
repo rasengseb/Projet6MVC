@@ -23,6 +23,11 @@
             <form:form action="site/saveSite" cssClass="form-horizontal" method="post" modelAttribute="site">
                 <form:hidden path="id" class="card-text"/>
 
+                <c:if test="${session.utilisateur.admin}">
+                    <form:input path="officiel" type="radio" name="officel" id="offciel" cssClass="form-horizontal"/>
+                    <label for="offciel">Site Officiel</label>
+                </c:if>
+
                 <div class="form-group row">
                     <label for="nom" class="col-md-3 col-form-label">Nom : </label>
                     <div class="col-md-9">

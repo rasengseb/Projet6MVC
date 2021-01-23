@@ -10,10 +10,13 @@ public interface SiteService {
 
     void saveSite(Site site);
 
+    void updateSite (Site modifSite) throws RessourceNotFoundException;
+
     List getAllSite();
 
     Site getSite(int id) throws RessourceNotFoundException;
 
     List<Site> getAllByUtilisateur(Utilisateur utilisateur);
 
+    List recherche(String nom, int nbSecteur, int codePostal);
 }

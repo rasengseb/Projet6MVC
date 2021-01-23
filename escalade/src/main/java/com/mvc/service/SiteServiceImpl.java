@@ -24,6 +24,15 @@ public class SiteServiceImpl implements SiteService {
     }
 
     @Override
+    public void updateSite(Site modifSite) throws RessourceNotFoundException {
+        Site site = siteRepository.findById(modifSite.getId()).orElseThrow(
+                () -> new RessourceNotFoundException(modifSite.getId()));
+        site.setOfficiel(modifSite.getOfficiel());
+        site.setNom(modifSite.getNom());
+        siteRepository.save(site);
+    }
+
+    @Override
     public List getAllSite() {
         return siteRepository.findAll();
     }
@@ -38,6 +47,12 @@ public class SiteServiceImpl implements SiteService {
     public List<Site> getAllByUtilisateur(Utilisateur utilisateur) {
         return siteRepository.getAllByUtilisateur(utilisateur);
     }
+
+    @Override
+    public List recherche(String nom, int nbSecteur, int codePostal) {
+        return siteRepository.getAllByNomOrNbSecteurOrAdresse_CodePostalOrderByNom(nom, nbSecteur, codePostal);
+    }
+
 
 
 }

@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="card">
-        <h1 class="card-title">${topo.nom}</h1>
+        <h1 class="card-header">${topo.nom}</h1>
         <div class="card-body">
 
             <div class="form-group row">

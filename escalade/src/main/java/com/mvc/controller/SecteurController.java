@@ -4,6 +4,7 @@ import com.mvc.entity.Secteur;
 import com.mvc.entity.Site;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.SecteurService;
+import com.mvc.service.SiteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class SecteurController {
     @Autowired
     private SecteurService secteurService;
 
+    @Autowired
+    private SiteService siteService;
+
     @GetMapping
     public String showFormForAdd(Model model){
         LOG.debug("inside show secteur-form handler method");
@@ -32,12 +36,15 @@ public class SecteurController {
     }
 
     @PostMapping("/saveSecteur")
-    public String saveSecteur(@ModelAttribute("secteur") Secteur secteur, @RequestParam("siteId") Integer id){
+    public String saveSecteur(@ModelAttribute("secteur") Secteur secteur, @RequestParam("siteId") Integer id) throws RessourceNotFoundException {
         Site site = new Site();
         site.setId(id);
         secteur.setSite(site);
         secteurService.saveSecteur(secteur);
-        return "secteur-form";
+        site = siteService.getSite(id);
+        site.setNbSecteur(site.getNbSecteur()+1);
+        siteService.saveSite(site);
+        return "redirect:/site/showSite/{siteId}";
     }
 
     @GetMapping("site/{siteId}/addSecteur")

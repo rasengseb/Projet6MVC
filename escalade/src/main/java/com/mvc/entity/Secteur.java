@@ -1,7 +1,6 @@
 package com.mvc.entity;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Entity
@@ -16,7 +15,7 @@ public class Secteur {
     @Column(name = "numero")
     private Integer numero;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_site")
     private Site site;
 

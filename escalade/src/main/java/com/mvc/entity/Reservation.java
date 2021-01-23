@@ -49,7 +49,7 @@ public class Reservation {
         return statut;
     }
 
-    public void setStatut(boolean statut) {
+    public void setStatut(Boolean statut) {
         this.statut = statut;
     }
 

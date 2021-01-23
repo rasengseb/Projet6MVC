@@ -34,7 +34,12 @@
             <a class="nav-link" id="topo-tab" data-toggle="tab" href="#topo" aria-controls="topo" aria-selected="false">Mes
                 Topos</a>
         </li>
+        <li>
+            <a class="nav-link" id="demande-tab" data-toggle="tab" href="#demande" aria-controls="demande" aria-selected="false">Mes Demandes</a>
+        </li>
     </ul>
+
+
 
     <div class="tab-content" id="myTabContent">
 
@@ -115,7 +120,10 @@
                                     <p>validé</p>
                                 </c:when>
                                 <c:when test="${!resa.statut}">
-                                    <p>en cours de validation</p>
+                                    <p>refusé</p>
+                                </c:when>
+                                <c:when test="${resa.statut} == null">
+                                    <p>en cours de vérification</p>
                                 </c:when>
                             </c:choose>
                         </td>
@@ -138,7 +146,7 @@
                     <tr>
                         <td>${topo.nom}</td>
                         <td class="form-group">
-                            <form:form action="" cssClass="form-horizontal"
+                            <form:form action="/site/affichageTopo/${topo.id}" cssClass="form-horizontal"
                                        method="get"
                                        modelAttribute="sites">
                                 <button class="btn btn-info" type="submit">Voir</button>
@@ -147,6 +155,40 @@
                     </tr>
                 </c:forEach>
             </table>
+        </div>
+
+        <%--            PANNEAU DEMANDE RESERVATION UTILISATEUR--%>
+        <div id="demande" class="tab-pane fade" role="tabpanel" aria-labelledby="demande-tab">
+            <div class="card">
+                <h3 class="card-header">Demande de réservation de Topos</h3>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>Pseudo</th>
+                            <th>date</th>
+                            <th>Topo</th>
+                            <th>Site</th>
+                            <th></th>
+                        </tr>
+                        <c:forEach var="topo" items="${session.utilisateur.topos}">
+                            <c:forEach var="reservation" items="${topo.reservations}">
+                                <td>${reservation.utilisateur.pseudo}</td>
+                                <td>${reservation.dateReservation}</td>
+                                <td>${reservation.topo.nom}</td>
+                                <td>${reservation.topo.site.nom}</td>
+                                <td>
+                                    <form:form action="profile/accepterResa/${reservation.id}" cssClass="form-horizontal" method="get" modelAttribute="reservation">
+                                        <button class="btn btn-info" type="submit">Accepter</button>
+                                    </form:form>
+                                    <form:form action="profile/refuserResa/${reservation.id}" cssClass="form-horizontal" method="get" modelAttribute="reservation">
+                                        <button class="btn btn-info" type="submit">Refuser</button>
+                                    </form:form>
+                                </td>
+                            </c:forEach>
+                        </c:forEach>
+                    </table>
+                </div>
+            </div>
         </div>
 
     </div>

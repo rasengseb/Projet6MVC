@@ -29,11 +29,4 @@ public class SecteurServiceImpl implements SecteurService{
                 () -> new RessourceNotFoundException(id));
     }
 
-//    @Override
-//    public List getVoies(int id) throws RessourceNotFoundException {
-//        return secteurRepository.findAllById(id).orElseThrow(
-//                () -> new RessourceNotFoundException(id));
-//    }
-
-
 }

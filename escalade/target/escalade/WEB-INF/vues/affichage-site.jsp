@@ -18,31 +18,48 @@
 
 <div class="container">
     <div class="card">
-        <h3 class="card-header">${site.nom}</h3>
+        <div class="card-header row">
+            <h3 class="col-md-3">${site.nom}</h3>
+            <c:if test="${session.utilisateur == site.utilisateur || session.utilisateur.admin}">
+                <form:form action="/site/showModifSite/${site.id}" cssClass="form-horizontal" method="get" modelAttribute="site">
+                    <button type="submit" class="btn btn-info col-md-offset-6 col-md-1">Modifier</button>
+                </form:form>
+            </c:if>
+            <c:if test="${site.officiel}">
+                <p class="col-md-2">Site d'escalade Officiel</p>
+            </c:if>
+        </div>
         <div class="card-body">
-
+<%--            ADRESSE PART--%>
             <div class="card">
                 <div class="card-header">Adresse :</div>
                 <div class="card-body">
                     <c:choose>
                         <c:when test="${ site.adresse != null }">
-                            <p>${ site.adresse.toString() }</p>
-                            <form:form>
-                                <button type="submit" class="btn btn-info">Modifier</button>
-                            </form:form>
+                            <c:if test="${session.utilisateur == site.utilisateur || session.utilisateur.admin}">
+                                <p>${ site.adresse.toString() }</p>
+                                <form:form>
+                                    <button type="submit" class="btn btn-info">Modifier</button>
+                                </form:form>
+                            </c:if>
                         </c:when>
 
                         <c:when test="${ site.adresse == null }">
                             <p>Aucune adresse enregistée</p>
-                            <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
-                                       modelAttribute="site">
-                                <button type="submit" class="btn btn-info">Ajouter Adresse</button>
-                            </form:form>
+                            <c:if test="${session.utilisateur == site.utilisateur || session.utilisateur.admin}">
+                                <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
+                                           modelAttribute="site">
+                                    <button type="submit" class="btn btn-info">Ajouter Adresse</button>
+                                </form:form>
+                            </c:if>
                         </c:when>
                     </c:choose>
                 </div>
             </div>
 
+            <br/>
+
+<%--            SECTEUR PART--%>
             <div class="card">
                 <div class="card-header">Secteur :</div>
                 <div class="card-body">
@@ -79,6 +96,9 @@
                 </div>
             </div>
 
+            <br/>
+
+<%--            TOPOS PART--%>
             <div class="card">
                 <div class="card-header">Topos :</div>
                 <div class="card-body">
@@ -121,40 +141,32 @@
 
 
 <%--                COMMENTAIRE PART--%>
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <div class="panel-title">Commentaire</div>
-    </div>
-    <div class="panel-body">
-        <!-- loop over and print our customers -->
-        <c:forEach var="commentaires" items="${commentaires}">
-            <tr>
-                <td>${commentaires.utilisateur.pseudo}</td>
-
-                <td>
-                        ${commentaires.commentaire}
-                </td>
-
-            </tr>
-
-        </c:forEach>
-    </div>
-
-    <form:form action="/site/saveCommentaire/${siteId}" cssClass="form-horizontal" method="post"
-               modelAttribute="commentaire">
-        <div class="form-group">
-            <label for="commentaire" class="col-md-3 control-label">Commentaire : </label>
-            <div class="col-md-offset-3 col-md-9">
-                <form:input path="commentaire" cssClass="form-control"/>
-            </div>
-            <!-- Button -->
-            <div class="col-md-offset-3 col-md-9">
-                <form:button cssClass="btn btn-primary">Commenter</form:button>
-            </div>
+<div class="container">
+    <div class="card">
+        <h3 class="card-header"></h3>
+        <div class="card-body">
+            <table class="table table-striped table-bordered">
+                <c:forEach var="commentaires" items="${commentaires}">
+                    <tr>
+                        <td>${commentaires.utilisateur.pseudo} : <br> ${commentaires.commentaire}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+            <form:form action="/site/saveCommentaire/${siteId}" cssClass="form-horizontal" method="post"
+                       modelAttribute="commentaire">
+                <div class="form-group">
+                    <label for="commentaire" class="col-md-3 control-label">Commentaire : </label>
+                    <div class="col-md-offset-3 col-md-9">
+                        <form:input path="commentaire" cssClass="form-control"/>
+                    </div>
+                    <!-- Button -->
+                    <div class="col-md-offset-3 col-md-9">
+                        <form:button cssClass="btn btn-primary">Commenter</form:button>
+                    </div>
+                </div>
+            </form:form>
         </div>
-    </form:form>
+    </div>
 </div>
-
-
 </body>
 </html>

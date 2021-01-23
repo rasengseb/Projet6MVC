@@ -21,9 +21,9 @@
         </div>
 
         <nav class="navbar navbar-dark bg-dark">
-            <form class="form-inline">
+            <form:form action="/accueil/showRecherche" method="get">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Recherche</button>
-            </form>
+            </form:form>
             <c:choose>
                 <c:when test="${ !session.connect }">
                     <form:form action="/utilisateur" method="get">

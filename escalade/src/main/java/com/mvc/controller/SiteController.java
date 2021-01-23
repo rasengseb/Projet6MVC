@@ -52,6 +52,7 @@ public class SiteController {
     @PostMapping("/saveSite")
     public String saveSite(@ModelAttribute("site") Site site, @ModelAttribute("session") Session session) {
         site.setUtilisateur(session.getUtilisateur());
+        site.setNbSecteur(0);
         siteService.saveSite(site);
         return "redirect:/accueil/profile";
     }
@@ -117,7 +118,21 @@ public class SiteController {
     public String reserverTopo (@PathVariable("topoId") int id, @ModelAttribute("session") Session session, @ModelAttribute("reservation")Reservation reservation) throws RessourceNotFoundException {
         reservation.setUtilisateur(session.getUtilisateur());
         reservation.setTopo(topoService.getTopo(id));
+        reservation.setStatut(null);
         reservationService.saveReservation(reservation);
         return "redirect:/site/affichageTopo/{topoId}";
     }
+
+    @PostMapping("/modifSite/{siteId}")
+    public String modifSite (@ModelAttribute("site") Site site) throws RessourceNotFoundException {
+        siteService.updateSite(site);
+        return "redirect:/site/showSite/{siteId}";
+    }
+
+    @GetMapping("showModifSite/{siteId}")
+    public String showModifSite(Model model, @PathVariable("siteId") int id) throws RessourceNotFoundException {
+        model.addAttribute("site", siteService.getSite(id));
+        return "modifSite";
+    }
+
 }

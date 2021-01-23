@@ -22,10 +22,16 @@ public class Site {
     @OneToMany(mappedBy = "site")
     private List<Secteur> secteurs;
 
+    @Column(name = "nbsecteur")
+    private Integer nbSecteur;
+
+    @Column(name = "isOfficiel")
+    private Boolean officiel;
+
     @OneToMany(mappedBy = "site")
     private List<Commentaire> commentaires;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
@@ -90,5 +96,21 @@ public class Site {
 
     public void setTopos(List<Topo> topos) {
         this.topos = topos;
+    }
+
+    public Integer getNbSecteur() {
+        return nbSecteur;
+    }
+
+    public void setNbSecteur(Integer nbSecteur) {
+        this.nbSecteur = nbSecteur;
+    }
+
+    public Boolean getOfficiel() {
+        return officiel;
+    }
+
+    public void setOfficiel(Boolean officiel) {
+        this.officiel = officiel;
     }
 }
