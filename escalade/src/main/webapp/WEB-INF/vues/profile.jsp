@@ -40,7 +40,6 @@
     </ul>
 
 
-
     <div class="tab-content" id="myTabContent">
 
         <%--            PANNEAU INFORMARTION UTILISATEUR--%>
@@ -64,8 +63,11 @@
                         <label for="mail" class="col-md-3 col-form-label">Email : </label>
                         <p id="mail" class="form-control-plaintext col-md-9">${session.utilisateur.mail}</p>
                     </div>
-                    <form:form cssClass="form-horizontal">
+                    <form:form cssClass="form-horizontal" action="/accueil/modifProfile" method="get">
                         <button class="btn btn-dark" type="submit">Modifier</button>
+                    </form:form>
+                    <form:form cssClass="form-horizontal" action="/accueil/deconnexion" method="get">
+                        <button class="btn btn-danger">Déconnexion</button>
                     </form:form>
                 </div>
             </div>

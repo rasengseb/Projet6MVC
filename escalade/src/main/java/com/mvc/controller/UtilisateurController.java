@@ -5,7 +5,6 @@ import com.mvc.entity.Session;
 import com.mvc.entity.Utilisateur;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.UtilisateurService;
-import org.hibernate.internal.SessionImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -40,10 +38,9 @@ public class UtilisateurController {
     }
 
     @PostMapping("/connexion")
-    public String connexion(@ModelAttribute("connexion") Connexion connexion, @ModelAttribute("session") Session session, RedirectAttributes attributes) throws RessourceNotFoundException {
+    public String connexion(@ModelAttribute("connexion") Connexion connexion, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
         session.setUtilisateur(utilisateurService.getUtilisateur(connexion));
         session.setConnect(true);
-        //attributes.addFlashAttribute("session", session);
         return "redirect:/accueil/profile";
     }
 
@@ -53,5 +50,11 @@ public class UtilisateurController {
         return "redirect:/utilisateur";
     }
 
-
+    @PostMapping("/updateUtilisateur")
+    public String updateUtilisateur(@ModelAttribute("utilisateur") Utilisateur utilisateur, @ModelAttribute("session") Session session, Model model) throws RessourceNotFoundException {
+        utilisateur.setId(session.getUtilisateur().getId());
+        session.setUtilisateur(utilisateurService.update(utilisateur));
+        model.addAttribute("session", session);
+        return "redirect:/accueil/profile";
+    }
 }

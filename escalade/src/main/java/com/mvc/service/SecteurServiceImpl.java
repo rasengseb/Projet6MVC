@@ -24,6 +24,14 @@ public class SecteurServiceImpl implements SecteurService{
     }
 
     @Override
+    public void update(Secteur secteur) throws RessourceNotFoundException {
+        Secteur secteur1 = secteurRepository.findById(secteur.getId()).orElseThrow(
+                () -> new RessourceNotFoundException(secteur.getId()));
+
+        secteur1.setNumero(secteur.getNumero());
+    }
+
+    @Override
     public Secteur getSecteur(int id) throws RessourceNotFoundException{
         return secteurRepository.findById(id).orElseThrow(
                 () -> new RessourceNotFoundException(id));

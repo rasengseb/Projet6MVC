@@ -17,7 +17,7 @@
 
 
 <div class="container">
-    <div class="card">$
+    <div class="card">
         <form:form action="/site/modifSite/${site.id}" cssClass="form-horizontal" method="post" modelAttribute="site">
         <h3 class="card-header">Modification Site</h3>
         <div class="card-body">

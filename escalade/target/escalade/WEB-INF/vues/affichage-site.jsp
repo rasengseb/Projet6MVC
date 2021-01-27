@@ -19,14 +19,14 @@
 <div class="container">
     <div class="card">
         <div class="card-header row">
-            <h3 class="col-md-3">${site.nom}</h3>
-            <c:if test="${session.utilisateur == site.utilisateur || session.utilisateur.admin}">
+            <h3>${site.nom}</h3>
+            <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
                 <form:form action="/site/showModifSite/${site.id}" cssClass="form-horizontal" method="get" modelAttribute="site">
-                    <button type="submit" class="btn btn-info col-md-offset-6 col-md-1">Modifier</button>
+                    <button type="submit" class="btn btn-info">Modifier</button>
                 </form:form>
             </c:if>
             <c:if test="${site.officiel}">
-                <p class="col-md-2">Site d'escalade Officiel</p>
+                <p>Site d'escalade Officiel</p>
             </c:if>
         </div>
         <div class="card-body">
@@ -36,9 +36,9 @@
                 <div class="card-body">
                     <c:choose>
                         <c:when test="${ site.adresse != null }">
-                            <c:if test="${session.utilisateur == site.utilisateur || session.utilisateur.admin}">
+                            <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
                                 <p>${ site.adresse.toString() }</p>
-                                <form:form>
+                                <form:form action="/adresse/showModifAdresse/${site.adresse.id}" method="get">
                                     <button type="submit" class="btn btn-info">Modifier</button>
                                 </form:form>
                             </c:if>
@@ -46,7 +46,7 @@
 
                         <c:when test="${ site.adresse == null }">
                             <p>Aucune adresse enregistée</p>
-                            <c:if test="${session.utilisateur == site.utilisateur || session.utilisateur.admin}">
+                            <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
                                 <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal" method="get"
                                            modelAttribute="site">
                                     <button type="submit" class="btn btn-info">Ajouter Adresse</button>
@@ -143,7 +143,7 @@
 <%--                COMMENTAIRE PART--%>
 <div class="container">
     <div class="card">
-        <h3 class="card-header"></h3>
+        <h3 class="card-header">Commentaires : </h3>
         <div class="card-body">
             <table class="table table-striped table-bordered">
                 <c:forEach var="commentaires" items="${commentaires}">
@@ -161,7 +161,7 @@
                     </div>
                     <!-- Button -->
                     <div class="col-md-offset-3 col-md-9">
-                        <form:button cssClass="btn btn-primary">Commenter</form:button>
+                        <button type="submit" class="btn btn-info">Commenter</button>
                     </div>
                 </div>
             </form:form>

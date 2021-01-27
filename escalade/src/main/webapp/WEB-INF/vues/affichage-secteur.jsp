@@ -18,7 +18,16 @@
 
 <div class="container">
     <div class="card">
-        <h3 class="card-header">Secteur ${secteur.numero}</h3>
+        <div class="card-header">
+            <h3>Secteur ${secteur.numero}</h3>
+            <c:if test="${session.utilisateur.id == secteur.site.utilisateur.id || session.utilisateur.admin}">
+                <form:form action="/secteur/showModifSecteur/${secteur.id}" cssClass="form-horizontal" method="get"
+                           modelAttribute="secteur">
+                    <button type="submit" class="btn btn-info">Modifier</button>
+                </form:form>
+            </c:if>
+        </div>
+
         <div class="card-body">
             <c:choose>
                 <c:when test="${secteur.voies != null}">
@@ -47,10 +56,12 @@
                 </c:when>
 
             </c:choose>
-            <form:form action="/voie/secteur/${secteur.id}/addVoie" cssClass="form-horizontal" method="get"
-                       modelAttribute="secteur">
-                <button class="btn btn-info" type="submit">Ajouter Voie</button>
-            </form:form>
+            <c:if test="${session.utilisateur.id == secteur.site.utilisateur.id || session.utilisateur.admin}">
+                <form:form action="/voie/secteur/${secteur.id}/addVoie" cssClass="form-horizontal" method="get"
+                           modelAttribute="secteur">
+                    <button class="btn btn-info" type="submit">Ajouter Voie</button>
+                </form:form>
+            </c:if>
         </div>
     </div>
 </div>

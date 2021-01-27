@@ -19,7 +19,7 @@
     <div class="card">
         <h1 class="card-header">Nouvelle Adresse :</h1>
         <div class="card-body">
-            <form:form action="/adresse/saveAdresse" cssClass="form-horizontal" method="post" modelAttribute="adresse">
+            <form:form action="/adresse/saveAdresse/${siteId}" cssClass="form-horizontal" method="post" modelAttribute="adresse">
                 <form:hidden path="id"/>
 
                 <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>

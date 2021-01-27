@@ -36,21 +36,33 @@ public class AdresseController {
         return "adresse-form";
     }
 
-    @PostMapping("/saveAdresse")
+    @PostMapping("/saveAdresse/{siteId}")
     public String saveAdresse(@ModelAttribute("adresse")Adresse adresse, @RequestParam("siteId") Integer id) throws RessourceNotFoundException {
         Site site = siteService.getSite(id);
         site.setAdresse(adresse);
         adresse.setSite(site);
         adresseService.saveAdresse(adresse);
-        return "adresse-form";
+        return "redirect: /site/showSite/{siteId}";
     }
 
     @GetMapping("{siteId}/addAdresse")
-    public String addSecteur (@PathVariable("siteId") Integer id, Model model){
+    public String addAdresse (@PathVariable("siteId") Integer id, Model model){
         Adresse adresse = new Adresse();
         model.addAttribute("adresse", adresse);
         model.addAttribute("siteId", id);
         return "adresse-form";
+    }
+
+    @GetMapping("/showModifAdresse/{adresseId}")
+    public String showModifAdresse (@PathVariable("adresseId") int id, Model model) throws RessourceNotFoundException {
+        model.addAttribute("adresse", adresseService.getAdresse(id));
+        return "modifAdresse";
+    }
+
+    @PostMapping("/updateAdresse/{siteId}")
+    public String updateAdresse (Adresse adresse){
+        adresseService.saveAdresse(adresse);
+        return "redirect: /site/showSite/{siteId}";
     }
 
 }

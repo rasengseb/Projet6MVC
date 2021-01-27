@@ -9,8 +9,8 @@ public interface SecteurService {
 
     void saveSecteur(Secteur secteur);
 
-    Secteur getSecteur(int id) throws RessourceNotFoundException;
+    void update (Secteur secteur) throws RessourceNotFoundException;
 
-//    List getVoies(int id) throws RessourceNotFoundException;
+    Secteur getSecteur(int id) throws RessourceNotFoundException;
 
 }

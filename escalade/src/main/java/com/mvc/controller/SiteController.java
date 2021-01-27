@@ -129,7 +129,7 @@ public class SiteController {
         return "redirect:/site/showSite/{siteId}";
     }
 
-    @GetMapping("showModifSite/{siteId}")
+    @GetMapping("/showModifSite/{siteId}")
     public String showModifSite(Model model, @PathVariable("siteId") int id) throws RessourceNotFoundException {
         model.addAttribute("site", siteService.getSite(id));
         return "modifSite";

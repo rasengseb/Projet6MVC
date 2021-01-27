@@ -35,8 +35,8 @@ public class SecteurController {
         return "secteur-form";
     }
 
-    @PostMapping("/saveSecteur")
-    public String saveSecteur(@ModelAttribute("secteur") Secteur secteur, @RequestParam("siteId") Integer id) throws RessourceNotFoundException {
+    @PostMapping("/saveSecteur/{siteId}")
+    public String saveSecteur(@ModelAttribute("secteur") Secteur secteur, @PathVariable("siteId") Integer id) throws RessourceNotFoundException {
         Site site = new Site();
         site.setId(id);
         secteur.setSite(site);
@@ -62,6 +62,18 @@ public class SecteurController {
         model.addAttribute("secteur", secteur);
         model.addAttribute("voie", secteur.getVoies());
         return "affichage-secteur";
+    }
+
+    @GetMapping("/showModifSecteur/{secteurId}")
+    public String showModifSecteur(Model model, @PathVariable("secteurId") int id) throws RessourceNotFoundException {
+        model.addAttribute("secteur", secteurService.getSecteur(id));
+        return "modifSecteur";
+    }
+
+    @PostMapping("/updateSecteur/{siteId}")
+    public String updateSecteur (@ModelAttribute("secteur") Secteur secteur) throws RessourceNotFoundException {
+        secteurService.update(secteur);
+        return "redirect:/site/showSite/{siteId}";
     }
     
 }

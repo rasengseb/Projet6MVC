@@ -19,9 +19,8 @@
     <div class="card">
         <h1 class="card-header">Nouveau Secteur :</h1>
         <div class="card-body">
-            <form:form action="/secteur/saveSecteur" cssClass="form-horizontal" method="post" modelAttribute="secteur">
+            <form:form action="/secteur/saveSecteur/${siteId}" cssClass="form-horizontal" method="post" modelAttribute="secteur">
                 <form:hidden path="id"/>
-                <input type="text" id=siteId" name="siteId" value="${siteId}" hidden/>
 
                 <div class="form-group row">
                     <label for="numero" class="col-md-3 col-form-label">Secteur Numéro : </label>

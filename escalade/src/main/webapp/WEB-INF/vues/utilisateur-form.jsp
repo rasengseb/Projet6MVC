@@ -23,7 +23,7 @@
                 <h3 class="card-header">Inscription</h3>
                 <div class="card-body">
                     <form class="card-text">
-                        <form:form action="utilisateur/saveUtilisateur" cssClass="form-horizontal"
+                        <form:form action="/utilisateur/saveUtilisateur" cssClass="form-horizontal"
                                    method="post" modelAttribute="utilisateur">
 
                             <!-- need to associate this data with customer id -->
