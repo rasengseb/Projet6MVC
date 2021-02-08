@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style type="text/css"><%@include file="../css/style.css"%></style>
+
+<%--    <style type="text/css">--%>
+<%--        body {--%>
+<%--            background-image: url(https://www.camping-la-verdiere-83.com/wp-content/uploads/2015/02/verdon_escalade.png);--%>
+<%--            -webkit-background-size: cover;--%>
+<%--            -moz-background-size: cover;--%>
+<%--            background-size: cover;--%>
+<%--            -o-background-size: cover;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
 <%@ include file="header.jsp" %>

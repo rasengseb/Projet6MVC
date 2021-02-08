@@ -17,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.time.OffsetTime;
 import java.util.List;
 
 @Controller
@@ -106,7 +105,8 @@ public class SiteController {
     }
 
     @GetMapping("/affichageTopo/{topoId}")
-    public String afficherTopo(Model model, @PathVariable("topoId") int id) throws RessourceNotFoundException {
+    public String afficherTopo(Model model, @PathVariable("topoId") int id, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
+        model.addAttribute("session", session);
         Topo topo = topoService.getTopo(id);
         Reservation reservation = new Reservation();
         model.addAttribute("reservation", reservation);
@@ -135,4 +135,15 @@ public class SiteController {
         return "modifSite";
     }
 
+    @PostMapping("/deleteCommentaire/{commentaireId}/{siteId}")
+    public String deleteCommentaire(@ModelAttribute("commentaireId")int id) throws RessourceNotFoundException {
+        commentaireService.deleteCommentaire(id);
+        return "redirect:/site/showSite/{siteId}";
+    }
+
+    @PostMapping("/updateCommentaire/{siteId}/{commentaireId}")
+    public String updateCommentaire(@RequestParam("commentaire")String commentaire, @PathVariable("commentaireId") int id) throws RessourceNotFoundException {
+        commentaireService.update(commentaire, id);
+        return "redirect:/site/showSite/{siteId}";
+    }
 }

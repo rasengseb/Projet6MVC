@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style type="text/css"><%@include file="../css/style.css"%></style>
 </head>
 <body>
 
@@ -36,16 +37,18 @@
                 <p id="user" class="col-md-9">${topo.utilisateur.pseudo}</p>
             </div>
 
-            <form:form action="/site/reservation/${topo.id}" cssClass="form-horizontal" method="post" modelAttribute="reservation">
-                <div class="form-group row">
-                    <label for="resa" class="col-form-label col-md-3">Date de la réservation :</label>
-                    <div class="col-md-9">
-                        <form:input path="dateReservation" cssClass="form-control" type="date" id="resa"
-                                    placeholder="jj/mm/aaaa"/>
+            <c:if test="${session.connect}">
+                <form:form action="/site/reservation/${topo.id}" cssClass="form-horizontal" method="post" modelAttribute="reservation">
+                    <div class="form-group row">
+                        <label for="resa" class="col-form-label col-md-3">Date de la réservation :</label>
+                        <div class="col-md-9">
+                            <form:input path="dateReservation" cssClass="form-control" type="date" id="resa"
+                                        placeholder="jj/mm/aaaa"/>
+                        </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-dark">Réserver</button>
-            </form:form>
+                    <button type="submit" class="btn btn-dark">Réserver</button>
+                </form:form>
+            </c:if>
         </div>
     </div>
 </div>
