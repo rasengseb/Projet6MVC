@@ -25,4 +25,16 @@ public class VoieServiceImpl implements VoieService{
         return voieRepository.findById(id).orElseThrow(
                 () -> new RessourceNotFoundException(id));
     }
+
+    @Override
+    public void update(Voie voie) throws RessourceNotFoundException {
+        Voie voie1 = voieRepository.findById(voie.getId()).orElseThrow(
+                () -> new RessourceNotFoundException(voie.getId())
+        );
+        voie1.setCote(voie.getCote());
+        voie1.setDescription(voie.getDescription());
+        voie1.setLongueur(voie.getLongueur());
+        voie1.setNom(voie.getNom());
+        voieRepository.save(voie1);
+    }
 }

@@ -1,7 +1,58 @@
 body {
-    background: url(https://www.camping-la-verdiere-83.com/wp-content/uploads/2015/02/verdon_escalade.png) no-repeat center center fixed;
+    background: url(https://zupimages.net/up/21/07/nyd5.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+.container{
+    background: white;
+}
+
+#titlebox{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+img{
+    width: 100px;
+    text-align: right;
+    align-self: center;
+}
+
+#affichageNomSite{
+    font-size: 50px;
+    text-align: left;
+    align-self: center;
+}
+
+#titlebox :first-child {
+    align-self: center;
+    text-align: center;
+}
+
+form {
+    display: grid;
+}
+
+#commentaire{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#btnModifCom{
+    display: inline-block;
+    text-align: right;
+}
+
+#btnSupprCom{
+    display: inline-flex;
+    text-align: right;
+}
+
+
+

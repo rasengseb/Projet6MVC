@@ -1,6 +1,7 @@
 package com.mvc.controller;
 
 import com.mvc.entity.Secteur;
+import com.mvc.entity.Session;
 import com.mvc.entity.Voie;
 import com.mvc.exception.RessourceNotFoundException;
 import com.mvc.service.VoieService;
@@ -52,9 +53,23 @@ public class VoieController {
 
     @Transactional
     @GetMapping("/showVoie/{voieId}")
-    public String showVoie(Model model, @PathVariable("voieId") int id) throws RessourceNotFoundException {
+    public String showVoie(Model model, @PathVariable("voieId") int id, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
         Voie voie = voieService.getVoie(id);
         model.addAttribute("voie", voie);
+        model.addAttribute("session", session);
         return "affichage-voie";
+    }
+
+    @GetMapping("/showModifVoie/{voieId}")
+    public String showModifVoie(Model model, @PathVariable("voieId") int id) throws RessourceNotFoundException {
+        Voie voie = voieService.getVoie(id);
+        model.addAttribute("voie", voie);
+        return "modifVoies";
+    }
+
+    @PostMapping("updateVoie/{secteurId}")
+    public String updateVoie(@PathVariable("secteurId") int id, @ModelAttribute("voie") Voie voie) throws RessourceNotFoundException {
+        voieService.update(voie);
+        return "redirect:/secteur/showSecteur/{secteurId}";
     }
 }

@@ -29,6 +29,7 @@ public class SecteurServiceImpl implements SecteurService{
                 () -> new RessourceNotFoundException(secteur.getId()));
 
         secteur1.setNumero(secteur.getNumero());
+        secteurRepository.save(secteur1);
     }
 
     @Override

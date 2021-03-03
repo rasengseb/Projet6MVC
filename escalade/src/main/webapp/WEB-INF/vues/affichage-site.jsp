@@ -11,7 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <style type="text/css"><%@include file="../css/style.css"%></style>
+    <style type="text/css">
+        <%@include file="../css/style.css" %>
+    </style>
 </head>
 <body>
 
@@ -19,34 +21,37 @@
 
 <div class="container">
     <div class="card">
-        <h3 class="card-header">${site.nom}
+        <div class="card-header" id="titlebox">
+            <h3 id="affichageNomSite">${site.nom} </h3>
+                <c:if test="${session.connect && (session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin)}">
+                    <form:form action="/site/showModifSite/${site.id}" cssClass="form-horizontal" method="get"
+                               modelAttribute="site">
+                        <div align="right" id="ModifierSite">
+                            <button type="submit" class="btn btn-info">Modifier</button>
+                        </div>
+                    </form:form>
+                </c:if>
+                <c:if test="${!session.connect || session.utilisateur.id != site.utilisateur.id}">
+                    <div>
 
-            <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
-                <form:form action="/site/showModifSite/${site.id}" cssClass="form-horizontal" method="get"
-                           modelAttribute="site">
-                    <div align="right">
-                        <button type="submit" class="btn btn-info">Modifier</button>
                     </div>
-                </form:form>
-            </c:if>
+                </c:if>
 
-            <c:if test="${site.officiel}">
-                <p align="right">Site d'escalade Officiel</p>
-            </c:if>
-
-        </h3>
-
+                <c:if test="${site.officiel}">
+                    <img src="../../resource/Officiel.png" class="rounded float-right" alt="Site officiel"/>
+                </c:if>
+        </div>
     </div>
+
+
     <div class="card-body">
-
-
         <%--            ADRESSE PART--%>
         <div class="card">
             <div class="card-header">Adresse :</div>
             <div class="card-body">
                 <c:choose>
                     <c:when test="${ site.adresse != null }">
-                        <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
+                        <c:if test="${session.connect && (session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin)}">
                             <p>${ site.adresse.toString() }</p>
                             <form:form action="/adresse/showModifAdresse/${site.adresse.id}" method="get">
                                 <button type="submit" class="btn btn-info">Modifier</button>
@@ -56,7 +61,7 @@
 
                     <c:when test="${ site.adresse == null }">
                         <p>Aucune adresse enregistée</p>
-                        <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
+                        <c:if test="${session.connect && (session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin)}">
                             <form:form action="/adresse/${site.id}/addAdresse" cssClass="form-horizontal"
                                        method="get"
                                        modelAttribute="site">
@@ -101,7 +106,7 @@
                     </c:when>
                 </c:choose>
 
-                <c:if test="${session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin}">
+                <c:if test="${session.connect && (session.utilisateur.id == site.utilisateur.id || session.utilisateur.admin)}">
                     <form:form action="/secteur/site/${site.id}/addSecteur" cssClass="form-horizontal" method="get"
                                modelAttribute="site">
                         <button type="submit" class="btn btn-info">Ajouter Secteur</button>
@@ -164,7 +169,7 @@
                 <c:forEach var="commentaires" items="${commentaires}">
                     <tr>
                         <td>${commentaires.utilisateur.pseudo}</td>
-                        <td>
+                        <td id="commentaire">
                             <c:if test="${session.utilisateur.admin}">
 
                                 <form:form action="/site/updateCommentaire/${siteId}/${commentaires.id}" method="post"
@@ -174,14 +179,14 @@
                                     <form:input path="commentaire" value="${commentaires.commentaire}"/>
 
                                     <div class="row" align="right">
-                                    <button type="submit" class="badge badge-secondary">
+                                    <button type="submit" class="badge badge-secondary" id="btnModifCom">
                                         <ion-icon name="pencil-outline" size="small"></ion-icon>
                                     </button>
                                 </form:form>
 
                                 <form:form action="/site/deleteCommentaire/${commentaires.id}/${siteId}"
                                            cssClass="form-horizontal" method="post">
-                                    <button type="submit" class="badge badge-danger">
+                                    <button type="submit" class="badge badge-danger" id="btnSupprCom">
                                         <ion-icon name="close-outline" size="small"></ion-icon>
                                     </button>
                                     </div>
@@ -195,7 +200,6 @@
                     </tr>
                 </c:forEach>
             </table>
-
 
 
             <form:form action="/site/saveCommentaire/${siteId}" cssClass="form-horizontal" method="post"
@@ -221,5 +225,10 @@
 </div>
 
 <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

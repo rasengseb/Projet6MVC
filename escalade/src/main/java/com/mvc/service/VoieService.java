@@ -7,4 +7,5 @@ public interface VoieService {
 
     void saveVoie (Voie voie);
     Voie getVoie(int id) throws RessourceNotFoundException;
+    void update(Voie voie) throws RessourceNotFoundException;
 }

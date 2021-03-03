@@ -25,6 +25,8 @@ public class CommentaireServiceImpl implements CommentaireService{
         Commentaire commentaire = commentaireRepository.findById(id).orElseThrow(
                 () -> new RessourceNotFoundException(id)
         );
+        commentaire.setSite(null);
+        commentaireRepository.save(commentaire);
         commentaireRepository.delete(commentaire);
     }
 
