@@ -3,22 +3,25 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+<header class="fixed-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
+
         <a class="navbar-brand" href="${pageContext.request.contextPath}/accueil">
-            <img src="" width="30" height="30" alt="">
-            Les amis de l'escalade
+            <img src="../../resource/pngtree-mountain-vector-icon-isolated-on-white-background-image_228214.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+            Les Amis de l'Escalade
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <form:form action="/accueil/showRecherche" method="get">
-                        <button class="btn btn-outline-info nav-link" type="submit">Recherche</button>
+                        <button class="btn btn-outline-info nav-link" id="headerSearch" type="submit">Recherche</button>
                     </form:form>
                 </li>
                 <li class="nav-item">

@@ -40,8 +40,13 @@ public class UtilisateurController {
     @PostMapping("/connexion")
     public String connexion(@ModelAttribute("connexion") Connexion connexion, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
         session.setUtilisateur(utilisateurService.getUtilisateur(connexion));
-        session.setConnect(true);
-        return "redirect:/accueil/profile";
+        if(session.getUtilisateur() == null){
+            return "redirect:/utilisateur";
+        }else{
+            session.setConnect(true);
+            return "redirect:/accueil/profile";
+        }
+
     }
 
     @PostMapping("/saveUtilisateur")
