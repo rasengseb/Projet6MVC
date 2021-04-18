@@ -34,13 +34,13 @@ public class VoieController {
         return "voie-form";
     }
 
-    @PostMapping("/saveVoie")
-    public String saveVoie(@ModelAttribute("voie") Voie voie, @RequestParam("secteurId")Integer id){
+    @PostMapping("/saveVoie/{secteurId}")
+    public String saveVoie(@ModelAttribute("voie") Voie voie, @PathVariable("secteurId")Integer id){
         Secteur secteur = new Secteur();
         secteur.setId(id);
         voie.setSecteur(secteur);
         voieService.saveVoie(voie);
-        return "redirect:/voie";
+        return "redirect:/secteur/showSecteur/{secteurId}";
     }
 
     @GetMapping("secteur/{secteurId}/addVoie")
@@ -53,10 +53,10 @@ public class VoieController {
 
     @Transactional
     @GetMapping("/showVoie/{voieId}")
-    public String showVoie(Model model, @PathVariable("voieId") int id, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
+    public String showVoie(Model model, @PathVariable("voieId") int id) throws RessourceNotFoundException {
         Voie voie = voieService.getVoie(id);
         model.addAttribute("voie", voie);
-        model.addAttribute("session", session);
+
         return "affichage-voie";
     }
 

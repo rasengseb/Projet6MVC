@@ -2,10 +2,12 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<jsp:directive.page contentType="text/html; charset=UTF-8" />
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <title>Les Amis de L'escalade</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -28,9 +30,9 @@
             <input type="text" id="nom" name="nom" value="${site.nom}"/>
 
             <c:if test="${session.utilisateur.admin}">
-                <form:checkbox path="officiel" name="officel" id="offciel" cssClass="form-horizontal"
+                <form:checkbox path="officiel" name="officiel" id="officiel" cssClass="form-horizontal"
                                value="${site.officiel}"/>
-                <label for="offciel">Site Officiel</label>
+                <label for="officiel">Site Officiel</label>
             </c:if>
 
             <button class="btn btn-info" type="submit">Enregistrer</button>

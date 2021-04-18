@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="escalade:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bb50620d-ee10-4bf4-bc4a-d433dce2f054" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Projet6MVC.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/escalade_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/escalade_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/escalade.QpC8bQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/escalade.QpC8bQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/escalade.QpC8bQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/escalade.QpC8bQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/escalade.QpC8bQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/escalade.QpC8bQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0308d624-4139-401a-a6fc-a35d92069e0b/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/escalade.iml" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/escalade.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/config/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/config/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/config/PersistenceJPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/config/PersistenceJPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/config/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/controller/SecteurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/controller/SecteurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/controller/UtilisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/controller/UtilisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/controller/VoieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/controller/VoieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/repository/UtilisateurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/java/com/mvc/repository/UtilisateurRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/Accueil.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/Accueil.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/Recherche.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/Recherche.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/adresse-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/adresse-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-secteur.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-secteur.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-site.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-site.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-topo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-topo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-voie.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/affichage-voie.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifAdresse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifAdresse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifSecteur.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifSecteur.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifSite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifSite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifVoies.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/modifVoies.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/secteur-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/secteur-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/site-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/site-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/site-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/site-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/topo-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/topo-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/utilisateur-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/utilisateur-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/voie-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/src/main/webapp/WEB-INF/vues/voie-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/src/main/webapp/site/resource/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/Officiel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/com/mvc/config/PersistenceJPAConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/classes/com/mvc/config/PersistenceJPAConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/com/mvc/controller/SecteurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/classes/com/mvc/controller/SecteurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/com/mvc/controller/UtilisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/classes/com/mvc/controller/UtilisateurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/com/mvc/controller/VoieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/classes/com/mvc/controller/VoieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/classes/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/classes/pngtree-mountain-vector-icon-isolated-on-white-background-image_228214.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade.war" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/Officiel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/config/PersistenceJPAConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/config/PersistenceJPAConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/controller/SecteurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/controller/SecteurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/controller/UtilisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/controller/UtilisateurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/controller/VoieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/com/mvc/controller/VoieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/classes/pngtree-mountain-vector-icon-isolated-on-white-background-image_228214.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/Accueil.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/Accueil.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/Recherche.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/Recherche.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/adresse-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/adresse-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-secteur.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-secteur.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-site.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-site.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-topo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-topo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-voie.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/affichage-voie.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifAdresse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifAdresse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifProfile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifProfile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifSecteur.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifSecteur.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifSite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifSite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifVoies.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/modifVoies.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/secteur-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/secteur-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/site-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/site-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/site-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/site-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/topo-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/topo-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/utilisateur-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/utilisateur-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/voie-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/escalade/WEB-INF/vues/voie-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/escalade/site/resource/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escalade/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/escalade/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1rId7uSPOUQKPLMh9fWDbHWIYcv" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/escalade" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.1752809" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" />
+      <option name="docBase" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo" />
+      <option name="vmOptions" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="escalade" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.45" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8.0_231">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/accueil" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="escalade:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="e2067221-dd45-4d8a-9c74-5d7715e424a6" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51338" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="escalade:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bb50620d-ee10-4bf4-bc4a-d433dce2f054" name="Default Changelist" comment="" />
+      <created>1618667373623</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618667373623</updated>
+      <workItem from="1618667376399" duration="3106000" />
+      <workItem from="1618675471150" duration="1931000" />
+      <workItem from="1618730952745" duration="6075000" />
+      <workItem from="1618752092642" duration="338000" />
+      <workItem from="1618752448353" duration="4610000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

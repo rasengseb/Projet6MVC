@@ -11,5 +11,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(propagation = Propagation.MANDATORY)
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
 
-    public Utilisateur getByPseudoAndMdp(String pseudo, String mdp);
+    Utilisateur getByPseudoAndMdp(String pseudo, String mdp);
 }

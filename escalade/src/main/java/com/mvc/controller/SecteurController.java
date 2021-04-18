@@ -58,11 +58,10 @@ public class SecteurController {
 
     @Transactional
     @GetMapping("/showSecteur/{secteurId}")
-    public String showSecteur(Model model, @PathVariable("secteurId") int id, @ModelAttribute("session")Session session) throws RessourceNotFoundException {
+    public String showSecteur(Model model, @PathVariable("secteurId") int id) throws RessourceNotFoundException {
         Secteur secteur = secteurService.getSecteur(id);
         model.addAttribute("secteur", secteur);
         model.addAttribute("voie", secteur.getVoies());
-        model.addAttribute("session", session);
         return "affichage-secteur";
     }
 

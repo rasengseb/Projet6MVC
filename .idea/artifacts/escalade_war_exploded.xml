@@ -54,9 +54,6 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.7" />
         </element>
       </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/escalade/target/escalade/META-INF/MANIFEST.MF" />
-      </element>
       <element id="javaee-facet-resources" facet="escalade/web/Web" />
     </root>
   </artifact>

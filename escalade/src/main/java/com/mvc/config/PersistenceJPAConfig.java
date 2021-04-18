@@ -1,7 +1,6 @@
 package com.mvc.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -62,7 +61,7 @@ public class PersistenceJPAConfig {
     @Bean
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-       // dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        // dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl(env.getProperty("jdbc.url"));
         dataSource.setUsername(env.getProperty("jdbc.user"));

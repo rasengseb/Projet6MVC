@@ -2,10 +2,12 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<jsp:directive.page contentType="text/html; charset=UTF-8" />
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <title>Les Amis de L'escalade</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -23,7 +25,7 @@
             <div class="card">
                 <h3 class="card-header">Inscription</h3>
                 <div class="card-body">
-                    <form class="card-text">
+                    <div class="card-text">
                         <form:form action="/utilisateur/saveUtilisateur" cssClass="form-horizontal"
                                    method="post" modelAttribute="utilisateur">
 
@@ -68,10 +70,10 @@
                                                 placeholder="name@example.com"/>
                                 </div>
                             </div>
-                            <button class="btn btn-dark" type="submit">Inscription</button>
 
+                            <button class="btn btn-dark" type="submit">Inscription</button>
                         </form:form>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,7 +100,6 @@
                         </div>
 
                         <button class="btn btn-dark" type="submit">Connexion</button>
-
                     </form:form>
                 </div>
             </div>

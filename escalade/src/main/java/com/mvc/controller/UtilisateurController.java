@@ -46,7 +46,6 @@ public class UtilisateurController {
             session.setConnect(true);
             return "redirect:/accueil/profile";
         }
-
     }
 
     @PostMapping("/saveUtilisateur")
