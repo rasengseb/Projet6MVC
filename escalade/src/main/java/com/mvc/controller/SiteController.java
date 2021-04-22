@@ -118,7 +118,8 @@ public class SiteController {
     public String reserverTopo (@PathVariable("topoId") int id, @ModelAttribute("session") Session session, @ModelAttribute("reservation")Reservation reservation) throws RessourceNotFoundException {
         reservation.setUtilisateur(session.getUtilisateur());
         reservation.setTopo(topoService.getTopo(id));
-        reservation.setStatut(null);
+        reservation.setStatut(false);
+        System.out.println("**************" + reservation.getDateReservation() + "****************************************");
         reservationService.saveReservation(reservation);
         return "redirect:/site/affichageTopo/{topoId}";
     }

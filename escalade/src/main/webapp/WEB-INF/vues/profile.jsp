@@ -3,16 +3,18 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:directive.page contentType="text/html; charset=UTF-8" />
+<jsp:directive.page contentType="text/html; charset=UTF-8"/>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
     <title>Les Amis de L'escalade</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <style type="text/css"><%@include file="../css/style.css"%></style>
+    <style type="text/css">
+        <%@include file="../css/style.css" %>
+    </style>
 </head>
 
 
@@ -38,7 +40,8 @@
                 Topos</a>
         </li>
         <li>
-            <a class="nav-link" id="demande-tab" data-toggle="tab" href="#demande" aria-controls="demande" aria-selected="false">Mes Demandes</a>
+            <a class="nav-link" id="demande-tab" data-toggle="tab" href="#demande" aria-controls="demande"
+               aria-selected="false">Mes Demandes</a>
         </li>
     </ul>
 
@@ -115,7 +118,7 @@
                     <th>Statut</th>
                 </tr>
                 <!-- loop over and print our customers -->
-                <c:forEach var="resa" items="${session.utilisateur.reservations}">
+                <c:forEach var="resa" items="${reservations}">
                     <tr>
                         <td>${resa.topo.nom}</td>
                         <td><input type="date" value="${resa.dateReservation}" readonly></td>
@@ -176,20 +179,20 @@
                             <th></th>
                         </tr>
                         <c:forEach var="topo" items="${session.utilisateur.topos}">
-                            <c:forEach var="reservation" items="${topo.reservations}">
-                                <td>${reservation.utilisateur.pseudo}</td>
-                                <td>${reservation.dateReservation}</td>
-                                <td>${reservation.topo.nom}</td>
-                                <td>${reservation.topo.site.nom}</td>
-                                <td>
-                                    <form:form action="profile/accepterResa/${reservation.id}" cssClass="form-horizontal" method="get" modelAttribute="reservation">
-                                        <button class="btn btn-info" type="submit">Accepter</button>
-                                    </form:form>
-                                    <form:form action="profile/refuserResa/${reservation.id}" cssClass="form-horizontal" method="get" modelAttribute="reservation">
-                                        <button class="btn btn-info" type="submit">Refuser</button>
-                                    </form:form>
-                                </td>
-                            </c:forEach>
+                            <tr>
+                                <c:forEach var="reservation" items="${topo.reservations}">
+                                    <td>${reservation.utilisateur.pseudo}</td>
+                                    <td>${reservation.dateReservation}</td>
+                                    <td>${reservation.topo.nom}</td>
+                                    <td>${reservation.topo.site.nom}</td>
+                                    <td>
+                                        <form:form action="profile/accepterResa/${reservation.id}"
+                                                   cssClass="form-horizontal" method="get" modelAttribute="reservation">
+                                            <button class="btn btn-info" type="submit">Accepter</button>
+                                        </form:form>
+                                    </td>
+                                </c:forEach>
+                            </tr>
                         </c:forEach>
                     </table>
                 </div>
@@ -201,8 +204,14 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -41,9 +41,11 @@ public class AccueilController {
     }
 
     @GetMapping("/profile")
-    public String showProfile(Model model, @ModelAttribute("session") Session session) {
+    public String showProfile(Model model, @ModelAttribute("session") Session session) throws RessourceNotFoundException {
         List<Site> sites = siteService.getAllByUtilisateur(session.getUtilisateur());
         model.addAttribute("sites", sites);
+        List<Reservation> reservations = reservationService.getAllByUtilisateur(session.getUtilisateur());
+        model.addAttribute("reservations", reservations);
         return "/profile";
     }
 
@@ -68,14 +70,6 @@ public class AccueilController {
     public String validerReservation(@PathVariable("reservationId") int id) throws RessourceNotFoundException {
         Reservation reservation = reservationService.getReservation(id);
         reservation.setStatut(true);
-        reservationService.saveReservation(reservation);
-        return "/profile";
-    }
-
-    @GetMapping("/profile/refuserResa/{reservationId}")
-    public String refuserReservation(@PathVariable("reservationId") int id) throws RessourceNotFoundException {
-        Reservation reservation = reservationService.getReservation(id);
-        reservation.setStatut(false);
         reservationService.saveReservation(reservation);
         return "/profile";
     }

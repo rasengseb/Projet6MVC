@@ -17,7 +17,7 @@ public class Reservation {
     @Column(name = "statut")
     private boolean statut;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateur;
 
